@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Action Network | The 2026 Rookie Culture Shock Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --an-green:#00b67a;
+  --an-green-bright:#00e09a;
+  --an-green-dark:#00865b;
+  --an-green-soft:#e8fff6;
+  --an-navy:#101820;
+  --an-navy-2:#152630;
+  --an-bg:#ffffff;
+  --an-bg2:#f7faf8;
+  --an-border:#dfe7e3;
+  --an-border-2:#cfd8d3;
+  --an-text:#20252a;
+  --an-muted:#6d7880;
+  --an-nfl:#00b67a;
+  --an-nba:#2f6f8f;
+  --an-wnba:#f59e0b;
+  --an-display:'Barlow Condensed', Impact, 'Arial Narrow', sans-serif;
+  --an-serif:'Source Serif 4', Georgia, serif;
+  --an-shadow:0 16px 38px rgba(16,24,32,.08);
+  --an-shadow-strong:0 22px 58px rgba(16,24,32,.14);
+}
+html,body{margin:0;padding:0;background:var(--an-bg);scroll-behavior:smooth;}
+html{scrollbar-width:thin;scrollbar-color:var(--an-green) #e9f4f1;}
+html::-webkit-scrollbar{width:12px;}
+html::-webkit-scrollbar-track{background:#e9f4f1;}
+html::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--an-green),var(--an-green-dark));border:3px solid #e9f4f1;border-radius:999px;}
+*,*::before,*::after{box-sizing:border-box;}
+body{font-family:var(--an-serif);color:var(--an-text);font-size:17px;line-height:1.65;}
+h1,h2,h3,h4,.an-display{font-family:var(--an-display);}
+.an-page{width:100%;overflow-x:clip;}
+.an-wrap{max-width:none;margin:0;padding:0 clamp(16px,2.4vw,40px);}
+
+/* ============ TOUGHEST MOVE BAND (full-bleed) ============ */
+.an-band-dark{position:relative;background:
+  radial-gradient(1100px 520px at 82% -10%, rgba(0,224,154,.16), transparent 55%),
+  radial-gradient(700px 420px at -8% 108%, rgba(0,182,122,.12), transparent 60%),
+  linear-gradient(150deg,#0b1218 0%, var(--an-navy) 46%, var(--an-navy-2) 100%);
+  color:#fff;overflow:hidden;}
+.an-band-dark::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:64px 64px;mask-image:radial-gradient(1200px 600px at 70% 20%, #000 0%, transparent 78%);}
+.an-band-inner{position:relative;z-index:2;padding:clamp(26px,3.4vw,46px) clamp(16px,2.4vw,40px);}
+.an-band-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px;}
+.an-logo-lockup{display:inline-flex;align-items:center;gap:0;}
+.an-logo-svg{height:28px;width:auto;display:block;}
+.an-logo-circle{fill:none;stroke:var(--an-green-bright);stroke-width:3.4;}
+.an-logo-check{fill:none;stroke:var(--an-green-bright);stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;}
+.an-logo-word{font-family:var(--an-display);font-weight:900;font-size:21px;letter-spacing:.14em;fill:#fff;}
+.an-kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--an-display);font-weight:700;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:var(--an-green-bright);margin:0;}
+.an-kicker::before{content:"";width:34px;height:2px;background:var(--an-green-bright);}
+
+/* flight path signature */
+.an-flight{position:relative;padding:clamp(20px,2.6vw,30px) clamp(20px,2.8vw,34px);background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-left:5px solid var(--an-green-bright);backdrop-filter:blur(3px);}
+.an-flight-label{font-family:var(--an-display);font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--an-green-bright);margin:0 0 8px;}
+.an-flight-route{display:flex;align-items:center;gap:clamp(14px,2vw,28px);flex-wrap:wrap;}
+.an-flight-city{font-family:var(--an-display);font-weight:800;font-size:clamp(19px,2.3vw,29px);text-transform:uppercase;letter-spacing:.02em;line-height:1.05;}
+.an-flight-city small{display:block;font-size:12px;letter-spacing:.16em;font-weight:600;color:rgba(255,255,255,.55);margin-top:3px;}
+.an-flight-arc{flex:1;min-width:160px;height:56px;position:relative;}
+.an-flight-arc svg{width:100%;height:100%;overflow:visible;}
+.an-arc-path{fill:none;stroke:rgba(255,255,255,.2);stroke-width:2;stroke-dasharray:5 7;}
+.an-arc-glow{fill:none;stroke:var(--an-green-bright);stroke-width:2.6;stroke-dasharray:5 7;stroke-dashoffset:1000;animation:an-dash 2.6s ease forwards .5s;}
+@keyframes an-dash{to{stroke-dashoffset:0;}}
+.an-arc-pin{fill:var(--an-green-bright);fill-rule:evenodd;filter:drop-shadow(0 2px 3px rgba(0,0,0,.45));}
+.an-arc-plane{opacity:0;transition:opacity .3s ease;}
+.an-arc-plane.is-flying{opacity:1;}
+.an-arc-plane path{fill:var(--an-green-bright);stroke:rgba(7,18,27,.85);stroke-width:.7;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5));}
+.an-arc-tag{opacity:0;transition:opacity .3s ease;}
+.an-arc-tag.is-flying{opacity:1;}
+.an-arc-tag text{font-family:var(--an-display);font-weight:700;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;fill:rgba(255,255,255,.88);paint-order:stroke;stroke:rgba(7,18,27,.8);stroke-width:2.4px;}
+.an-flight-miles{font-family:var(--an-display);font-weight:900;font-size:clamp(34px,4vw,56px);line-height:1;color:var(--an-green-bright);letter-spacing:-.01em;white-space:nowrap;}
+.an-flight-miles span:first-child{color:var(--an-green-bright);}
+.an-flight-miles span.sub{display:block;font-size:12px;letter-spacing:.2em;font-weight:700;color:rgba(255,255,255,.6);margin-top:5px;text-transform:uppercase;white-space:normal;}
+.an-hero-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);margin-top:clamp(18px,2.4vw,28px);}
+.an-hero-stat{background:rgba(16,24,32,.66);padding:20px 20px 18px;}
+.an-stat-body{min-width:0;}
+.an-mini-badges{display:inline-flex;gap:6px;margin-top:9px;}
+.an-mini-badges i{font-style:normal;font-family:var(--an-display);font-weight:800;font-size:10.5px;letter-spacing:.12em;padding:3px 8px;color:#fff;line-height:1;}
+.an-mini-badges i.NFL{background:var(--an-green-dark);}
+.an-mini-badges i.NBA{background:var(--an-nba);}
+.an-mini-badges i.WNBA{background:#d97e00;}
+.an-hero-stat b{display:block;font-family:var(--an-display);font-weight:900;font-size:clamp(30px,3.2vw,46px);line-height:1;letter-spacing:-.01em;color:#fff;white-space:nowrap;}
+.an-hero-stat b .u{color:var(--an-green-bright);}
+.an-hero-stat span.lbl{display:block;margin-top:7px;font-family:var(--an-display);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);white-space:normal;}
+
+/* ============ JUMP NAV ============ */
+.an-jump-nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--an-border);}
+.an-jump-track{max-width:none;margin:0;padding:0 clamp(16px,2.4vw,40px);display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none;}
+.an-jump-track::-webkit-scrollbar{display:none;}
+.an-jump-label{font-family:var(--an-display);font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--an-muted);padding-right:12px;flex:0 0 auto;}
+.an-jump-link{flex:0 0 auto;appearance:none;background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;font-family:var(--an-display);font-weight:700;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--an-text);padding:16px 12px 13px;transition:color .18s,border-color .18s;}
+.an-jump-link:hover{color:var(--an-green-dark);}
+.an-jump-link.is-active{color:var(--an-green-dark);border-bottom-color:var(--an-green);}
+.an-jump-link:focus-visible,.an-btn:focus-visible,.an-tab-btn:focus-visible,.an-chip:focus-visible{outline:3px solid var(--an-green);outline-offset:2px;}
+
+/* ============ SECTIONS ============ */
+.an-section{padding:clamp(48px,6vw,84px) 0;}
+.an-section.alt{background:var(--an-bg2);border-top:1px solid var(--an-border);border-bottom:1px solid var(--an-border);}
+.an-sec-head{display:flex;align-items:flex-end;gap:18px;margin-bottom:10px;}
+.an-sec-num{font-family:var(--an-display);font-weight:900;font-size:clamp(15px,1.4vw,18px);letter-spacing:.22em;color:var(--an-green-dark);padding:5px 11px;border:2px solid var(--an-green);line-height:1;}
+.an-sec-head h2{margin:0;font-weight:900;font-size:clamp(38px,5vw,64px);line-height:.94;letter-spacing:-.005em;text-transform:uppercase;color:var(--an-navy);}
+.an-sec-head h2 .accent{color:var(--an-green-dark);}
+.an-rule{width:64px;height:8px;background:linear-gradient(90deg,var(--an-green),var(--an-green-dark));margin:16px 0 22px;}
+.an-copy{max-width:none;font-size:clamp(16.5px,1.5vw,18.5px);line-height:1.72;}
+.an-copy p{margin:0 0 16px;}
+.an-copy strong{color:var(--an-navy);}
+
+/* reveal */
+.an-reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+.an-reveal.is-visible{opacity:1;transform:translateY(0);}
+@media (prefers-reduced-motion:reduce){
+  .an-reveal{opacity:1;transform:none;transition:none;}
+  .an-arc-glow,.an-bar-fill{animation:none !important;transition:none !important;}
+  .an-arc-glow{stroke-dashoffset:0 !important;}
+  html{scroll-behavior:auto;}
+}
+
+/* ============ KEY FINDINGS ============ */
+.an-kf-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px;}
+.an-kf-card{position:relative;background:#fff;border:1px solid var(--an-border);border-top:6px solid var(--an-green);padding:24px 22px 60px;box-shadow:0 12px 28px rgba(16,24,32,.055);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;overflow:hidden;}
+.an-kf-card::after{content:"";position:absolute;top:-38px;right:-38px;width:110px;height:110px;background:rgba(0,182,122,.09);transform:rotate(45deg);pointer-events:none;}
+.an-kf-card:hover{transform:translateY(-4px);box-shadow:var(--an-shadow-strong);border-color:rgba(0,182,122,.4);}
+.an-kf-card.is-featured{background:linear-gradient(135deg, rgba(0,224,154,.14), transparent 46%), linear-gradient(140deg,#0c1a1c 0%, var(--an-navy-2) 60%, var(--an-navy) 100%);color:#fff;border-color:rgba(0,224,154,.35);}
+.an-kf-card.is-featured p{color:rgba(255,255,255,.85);}
+.an-kf-card.is-featured h4{color:#fff;}
+.an-kf-card.is-featured strong{color:var(--an-green-bright);}
+.an-kf-rank{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;margin-bottom:14px;background:var(--an-green-soft);border:1px solid rgba(0,182,122,.3);color:var(--an-green-dark);font-family:var(--an-display);font-weight:900;font-size:19px;}
+.an-kf-card.is-featured .an-kf-rank{background:rgba(0,224,154,.14);border-color:rgba(0,224,154,.4);color:var(--an-green-bright);}
+.an-kf-card h4{position:relative;z-index:1;margin:0 0 10px;font-weight:800;font-size:clamp(21px,2vw,25px);line-height:1.06;text-transform:uppercase;letter-spacing:.01em;color:var(--an-navy);}
+.an-kf-card p{position:relative;z-index:1;margin:0;font-size:15.5px;line-height:1.62;}
+.an-kf-stat{position:absolute;left:22px;bottom:18px;z-index:1;font-family:var(--an-display);font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--an-green-dark);border-bottom:3px solid var(--an-green);padding-bottom:2px;}
+.an-kf-card.is-featured .an-kf-stat{color:var(--an-green-bright);border-color:var(--an-green-bright);}
+
+/* ============ QUOTE ============ */
+.an-quote{position:relative;background:linear-gradient(135deg, rgba(0,224,154,.15), transparent 44%), linear-gradient(140deg,#0b191b 0%, var(--an-navy-2) 55%, var(--an-navy) 100%);color:#fff;padding:clamp(30px,4vw,50px);border-left:6px solid var(--an-green-bright);box-shadow:var(--an-shadow-strong);overflow:hidden;}
+.an-quote::after{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:rgba(0,224,154,.09);transform:rotate(45deg);}
+.an-quote blockquote{position:relative;z-index:1;margin:0;font-size:clamp(19px,2.1vw,25px);line-height:1.55;font-style:italic;max-width:none;}
+.an-quote cite{position:relative;z-index:1;display:block;margin-top:20px;font-style:normal;font-family:var(--an-display);font-weight:700;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--an-green-bright);}
+
+/* ============ TAB SHELL / RANK TOOLS ============ */
+.an-shell{margin-top:30px;background:#fff;border:1px solid var(--an-border);box-shadow:var(--an-shadow);}
+.an-shell-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;padding:18px 22px;border-bottom:1px solid var(--an-border);background:var(--an-bg2);}
+.an-shell-head h3{margin:0;font-weight:800;font-size:clamp(20px,2vw,25px);text-transform:uppercase;letter-spacing:.02em;color:var(--an-navy);}
+.an-shell-head .note{font-size:13.5px;color:var(--an-muted);font-family:var(--an-serif);}
+.an-tab-nav{display:flex;gap:0;border-bottom:1px solid var(--an-border);background:#fff;}
+.an-tab-btn{appearance:none;background:none;border:none;border-bottom:4px solid transparent;cursor:pointer;font-family:var(--an-display);font-weight:700;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--an-muted);padding:14px 22px 11px;transition:color .18s,border-color .18s;}
+.an-tab-btn:hover{color:var(--an-navy);}
+.an-tab-btn.active{color:var(--an-green-dark);border-bottom-color:var(--an-green);}
+.an-tab-panel{display:none;padding:clamp(18px,2.4vw,28px);}
+.an-tab-panel.active{display:block;}
+
+/* bar chart */
+.an-bars{display:grid;gap:10px;}
+.an-bar-row{display:grid;grid-template-columns:34px minmax(120px,240px) 1fr 64px;align-items:center;gap:12px;}
+.an-bar-rank{font-family:var(--an-display);font-weight:900;font-size:18px;color:var(--an-muted);text-align:right;}
+.an-bar-row:nth-child(-n+3) .an-bar-rank{color:var(--an-green-dark);}
+.an-bar-name{font-family:var(--an-display);font-weight:700;font-size:16.5px;line-height:1.06;text-transform:uppercase;letter-spacing:.02em;color:var(--an-navy);}
+.an-bar-name small{display:block;font-family:var(--an-serif);font-weight:400;font-size:12px;letter-spacing:0;text-transform:none;color:var(--an-muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.an-bar-track{position:relative;height:26px;background:var(--an-bg2);border:1px solid var(--an-border);}
+.an-bar-fill{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,var(--an-green),var(--an-green-dark));transition:width 1.1s cubic-bezier(.2,.7,.2,1);}
+.an-bar-fill.nba{background:linear-gradient(90deg,#3f86aa,var(--an-nba));}
+.an-bar-fill.wnba{background:linear-gradient(90deg,#ffb52e,#e08c00);}
+.an-bar-score{font-family:var(--an-display);font-weight:900;font-size:20px;color:var(--an-navy);text-align:right;}
+
+/* table */
+.an-tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px;}
+.an-search{flex:1 1 220px;max-width:340px;padding:10px 14px;border:1px solid var(--an-border-2);font-family:var(--an-serif);font-size:15px;color:var(--an-text);background:#fff;}
+.an-search:focus{outline:2px solid var(--an-green);outline-offset:0;border-color:var(--an-green);}
+.an-chip{appearance:none;cursor:pointer;background:#fff;border:1px solid var(--an-border-2);padding:8px 15px;font-family:var(--an-display);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--an-muted);transition:all .15s;}
+.an-chip:hover{border-color:var(--an-green);color:var(--an-green-dark);}
+.an-chip.active{background:var(--an-navy);border-color:var(--an-navy);color:#fff;}
+.an-table-scroll{overflow-x:auto;border:1px solid var(--an-border);}
+table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.5px;}
+.an-table thead th{position:sticky;top:0;background:var(--an-navy);color:#fff;font-family:var(--an-display);font-weight:700;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:12px 12px;white-space:nowrap;cursor:pointer;user-select:none;z-index:2;}
+.an-table thead th .arrow{display:inline-block;margin-left:5px;color:var(--an-green-bright);font-size:11px;opacity:0;transition:opacity .15s;}
+.an-table thead th.sorted .arrow{opacity:1;}
+.an-table thead th:hover{background:var(--an-navy-2);}
+.an-table thead th.num, .an-table td.num{text-align:right;}
+.an-table tbody td{padding:10px 12px;border-bottom:1px solid var(--an-border);white-space:nowrap;}
+.an-table tbody tr:nth-child(even){background:var(--an-bg2);}
+.an-table tbody tr:hover{background:var(--an-green-soft);}
+.an-table tbody tr.top3 td:first-child{box-shadow:inset 4px 0 0 var(--an-green);}
+.an-table .rk{font-family:var(--an-display);font-weight:900;font-size:16px;color:var(--an-navy);}
+.an-table .pl{font-weight:600;color:var(--an-navy);}
+.an-table .idx{font-family:var(--an-display);font-weight:900;font-size:17px;color:var(--an-green-dark);}
+.an-lg-badge{display:inline-block;font-family:var(--an-display);font-weight:800;font-size:11.5px;letter-spacing:.1em;padding:3px 8px;color:#fff;}
+.an-lg-badge.NFL{background:var(--an-green-dark);}
+.an-lg-badge.NBA{background:var(--an-nba);}
+.an-lg-badge.WNBA{background:#d97e00;}
+.an-empty{padding:26px;text-align:center;color:var(--an-muted);font-size:15px;}
+.an-count-note{margin-top:10px;font-size:13px;color:var(--an-muted);}
+
+/* ============ METHODOLOGY ============ */
+.an-weights{display:grid;gap:14px;margin-top:28px;}
+.an-weight-card{display:grid;grid-template-columns:96px 1fr;gap:18px;background:#fff;border:1px solid var(--an-border);border-left:6px solid var(--an-green);padding:20px 22px;box-shadow:0 10px 24px rgba(16,24,32,.05);transition:box-shadow .2s,border-color .2s;}
+.an-weight-card:hover{box-shadow:var(--an-shadow-strong);border-color:rgba(0,182,122,.4);}
+.an-weight-pct{font-family:var(--an-display);font-weight:900;font-size:clamp(34px,3.6vw,46px);line-height:1;color:var(--an-green-dark);align-self:start;}
+.an-weight-pct small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.18em;color:var(--an-muted);margin-top:5px;text-transform:uppercase;}
+.an-weight-body h4{margin:0 0 6px;font-weight:800;font-size:20px;text-transform:uppercase;letter-spacing:.02em;color:var(--an-navy);}
+.an-weight-body p{margin:0 0 8px;font-size:15px;line-height:1.6;}
+.an-weight-body .ex{font-size:13.5px;color:var(--an-muted);border-top:1px dashed var(--an-border-2);padding-top:8px;margin-top:4px;}
+.an-weight-body .ex b{color:var(--an-green-dark);font-family:var(--an-display);letter-spacing:.1em;text-transform:uppercase;font-size:12px;margin-right:6px;}
+.an-weight-bar{height:8px;background:var(--an-bg2);border:1px solid var(--an-border);margin:8px 0 4px;position:relative;}
+.an-weight-bar i{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,var(--an-green),var(--an-green-dark));transition:width 1s cubic-bezier(.2,.7,.2,1);}
+.an-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:30px;}
+.an-step{background:var(--an-navy);color:#fff;padding:24px 22px;border-top:6px solid var(--an-green-bright);position:relative;overflow:hidden;}
+.an-step::after{content:"";position:absolute;top:-30px;right:-30px;width:90px;height:90px;background:rgba(0,224,154,.1);transform:rotate(45deg);}
+.an-step b{display:block;font-family:var(--an-display);font-weight:900;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--an-green-bright);margin-bottom:9px;}
+.an-step p{margin:0;font-size:15px;line-height:1.6;color:rgba(255,255,255,.85);}
+.an-bands{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--an-border);border:1px solid var(--an-border);margin-top:30px;}
+.an-band{background:#fff;padding:20px;}
+.an-band b{display:block;font-family:var(--an-display);font-weight:900;font-size:clamp(26px,2.8vw,36px);line-height:1;color:var(--an-navy);}
+.an-band span{display:block;margin-top:6px;font-family:var(--an-display);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;}
+.an-band.b1 span{color:#c23a3a;} .an-band.b2 span{color:#d97e00;} .an-band.b3 span{color:var(--an-green-dark);}
+.an-band p{margin:8px 0 0;font-size:13.5px;color:var(--an-muted);line-height:1.5;}
+.an-cover{margin-top:30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+.an-cover-card{background:#fff;border:1px solid var(--an-border);border-top:6px solid var(--an-green);padding:22px;}
+.an-cover-card.nba{border-top-color:var(--an-nba);} .an-cover-card.wnba{border-top-color:var(--an-wnba);}
+.an-cover-card h4{margin:0 0 4px;font-weight:900;font-size:24px;text-transform:uppercase;color:var(--an-navy);}
+.an-cover-card .n{font-family:var(--an-display);font-weight:900;font-size:40px;line-height:1;color:var(--an-green-dark);margin:6px 0 10px;}
+.an-cover-card.nba .n{color:var(--an-nba);} .an-cover-card.wnba .n{color:#d97e00;}
+.an-cover-card p{margin:0;font-size:14.5px;line-height:1.6;color:var(--an-text);}
+.an-callout{margin-top:26px;background:var(--an-green-soft);border:1px solid rgba(0,182,122,.3);border-left:6px solid var(--an-green);padding:18px 22px;font-size:15px;line-height:1.65;}
+.an-callout b{font-family:var(--an-display);letter-spacing:.14em;text-transform:uppercase;color:var(--an-green-dark);margin-right:6px;}
+
+/* ============ SECTION SEPARATOR ============ */
+.an-sep{display:flex;align-items:center;gap:18px;padding:clamp(10px,1.6vw,20px) clamp(16px,2.4vw,40px);background:var(--an-bg);}
+.an-section.alt + .an-sep, .an-sep.on-alt{background:var(--an-bg2);}
+.an-sep::before,.an-sep::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--an-border-2));}
+.an-sep::after{background:linear-gradient(90deg,var(--an-border-2),transparent);}
+.an-sep-btn{appearance:none;cursor:pointer;background:#fff;border:2px solid var(--an-green);color:var(--an-green-dark);font-family:var(--an-display);font-weight:800;font-size:14px;letter-spacing:.16em;text-transform:uppercase;padding:10px 22px;display:inline-flex;align-items:center;gap:9px;transition:all .18s ease;}
+.an-sep-btn .up{display:inline-block;transition:transform .18s ease;}
+.an-sep-btn:hover{background:var(--an-navy);border-color:var(--an-navy);color:#fff;}
+.an-sep-btn:hover .up{transform:translateY(-3px);}
+.an-sep-btn:focus-visible{outline:3px solid var(--an-green);outline-offset:2px;}
+
+/* ============ FOOTER ============ */
+.an-footer{background:var(--an-navy);color:rgba(255,255,255,.7);padding:clamp(36px,4.6vw,56px) 0;margin-top:0;}
+.an-footer .an-logo-word{fill:#fff;}
+.an-footer p{margin:14px 0 0;font-size:14px;line-height:1.7;max-width:none;}
+.an-footer strong{color:#fff;}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:960px){
+  .an-kf-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .an-hero-stats{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .an-steps,.an-cover,.an-bands{grid-template-columns:1fr;}
+}
+@media (max-width:640px){
+  .an-kf-grid{grid-template-columns:1fr;}
+  .an-bar-row{grid-template-columns:26px minmax(90px,140px) 1fr 48px;gap:8px;}
+  .an-bar-name{font-size:14px;}
+  .an-bar-score{font-size:16px;}
+  .an-weight-card{grid-template-columns:1fr;gap:8px;}
+  .an-flight-route{gap:10px;}
+  .an-flight-arc{min-width:100%;order:3;}
+}
+</style>
+</head>
+<body>
+<main class="an-page">
+
+  <!-- ============ JUMP NAV ============ -->
+  <nav class="an-jump-nav" aria-label="Culture Shock Index sections">
+    <div class="an-jump-track">
+      <span class="an-jump-label">Sections</span>
+      <button class="an-jump-link is-active" type="button" data-jump="sec-overview">Key Findings</button>
+      <button class="an-jump-link" type="button" data-jump="sec-combined">Combined</button>
+      <button class="an-jump-link" type="button" data-jump="sec-nfl">NFL</button>
+      <button class="an-jump-link" type="button" data-jump="sec-nba">NBA</button>
+      <button class="an-jump-link" type="button" data-jump="sec-wnba">WNBA</button>
+      <button class="an-jump-link" type="button" data-jump="sec-method">Methodology</button>
+    </div>
+  </nav>
+
+  <!-- ============ KEY FINDINGS ============ -->
+  <section id="sec-overview" class="an-section" style="padding-top:0;">
+
+    <div class="an-band-dark">
+      <div class="an-band-inner">
+        <div class="an-band-top">
+          <div class="an-logo-lockup" aria-label="Action Network">
+            <svg class="an-logo-svg" viewBox="0 0 228 34" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Action Network">
+              <circle class="an-logo-circle" cx="13" cy="17" r="11"></circle>
+              <path class="an-logo-check" d="M8 17.3 l3.4 3.4 l6.8 -7.4"></path>
+              <text class="an-logo-word" x="30" y="22.4">ACTION NETWORK</text>
+            </svg>
+          </div>
+          <div class="an-kicker">The 2026 Rookie Culture Shock Index &middot; NFL &middot; NBA &middot; WNBA</div>
+        </div>
+
+        <div class="an-flight" aria-label="Toughest move: Francis Mauigoa, Ili'ili American Samoa to New York, 7,206 miles">
+          <p class="an-flight-label">The Toughest Move In Pro Sports</p>
+          <p style="margin:0 0 14px;font-family:var(--an-serif);font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.75);">A measure of how drastically a rookie&#8217;s everyday life changes &mdash; distance from home, cost of living, climate, city size, and spotlight.</p>
+          <div class="an-flight-route">
+            <div class="an-flight-city">Ili&#8217;ili<small>American Samoa &middot; pop. 3,073</small></div>
+            <div class="an-flight-arc" aria-hidden="true">
+              <svg id="arcSvg" viewBox="0 0 300 56">
+                <path id="arcBase" class="an-arc-path" d="M 8 46 Q 150 -30 292 46"></path>
+                <path id="arcGlow" class="an-arc-glow" d="M 8 46 Q 150 -30 292 46" pathLength="1000"></path>
+                <path id="pinA" class="an-arc-pin" transform="translate(8 46)" d="M0 0 C-4.6 -6.2 -6.2 -8.6 -6.2 -11.4 A6.2 6.2 0 1 1 6.2 -11.4 C6.2 -8.6 4.6 -6.2 0 0 Z M2.3 -11.4 a2.3 2.3 0 1 0 -4.6 0 a2.3 2.3 0 1 0 4.6 0 Z"></path>
+                <path id="pinB" class="an-arc-pin" transform="translate(292 46)" d="M0 0 C-4.6 -6.2 -6.2 -8.6 -6.2 -11.4 A6.2 6.2 0 1 1 6.2 -11.4 C6.2 -8.6 4.6 -6.2 0 0 Z M2.3 -11.4 a2.3 2.3 0 1 0 -4.6 0 a2.3 2.3 0 1 0 4.6 0 Z"></path>
+                <g id="arcPlane" class="an-arc-plane">
+                  <path d="M13 0 L4 1.6 L-3.4 8.4 L-6.4 8.4 L-2.2 1.9 L-8.6 2.5 L-11 5.4 L-13.2 5.4 L-11.8 0 L-13.2 -5.4 L-11 -5.4 L-8.6 -2.5 L-2.2 -1.9 L-6.4 -8.4 L-3.4 -8.4 L4 -1.6 Z"></path>
+                  <animateMotion id="planeMotion" dur="2.4s" begin="indefinite" fill="freeze" rotate="auto" calcMode="spline" keyTimes="0;1" keySplines="0.35 0 0.25 1">
+                    <mpath href="#arcBase"></mpath>
+                  </animateMotion>
+                </g>
+                <g id="arcTag" class="an-arc-tag">
+                  <text x="0" y="24" text-anchor="middle">Francis Mauigoa</text>
+                  <animateMotion id="tagMotion" dur="2.4s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.35 0 0.25 1">
+                    <mpath href="#arcBase"></mpath>
+                  </animateMotion>
+                </g>
+              </svg>
+            </div>
+            <div class="an-flight-city">New York<small>Giants &middot; Francis Mauigoa, G</small></div>
+            <div class="an-flight-miles"><span class="js-countup" data-target="7206" data-comma="1">0</span>&nbsp;mi<span class="sub">Home to stadium &middot; 2,700&times; bigger city &middot; 19.2&deg;C colder winters</span></div>
+          </div>
+        </div>
+
+        <div class="an-hero-stats">
+          <div class="an-hero-stat">
+            <div class="an-stat-body">
+              <b><span class="js-countup" data-target="109">0</span></b>
+              <span class="lbl">Rookies scored, one shared engine</span>
+              <span class="an-mini-badges"><i class="NFL">NFL</i><i class="NBA">NBA</i><i class="WNBA">WNBA</i></span>
+            </div>
+          </div>
+          <div class="an-hero-stat">
+            <div class="an-stat-body">
+              <b><span class="js-countup" data-target="7845" data-comma="1">0</span>&nbsp;<span class="u">mi</span></b>
+              <span class="lbl">Longest move &middot; Okot, Kenya &rarr; Atlanta</span>
+            </div>
+          </div>
+          <div class="an-hero-stat">
+            <div class="an-stat-body">
+              <b>+<span class="js-countup" data-target="166">0</span><span class="u">%</span></b>
+              <span class="lbl">Biggest cost-of-living jump &middot; Lopez, Hermosillo &rarr; Memphis</span>
+            </div>
+          </div>
+          <div class="an-hero-stat">
+            <div class="an-stat-body">
+              <b><span class="js-countup" data-target="6">0</span>&nbsp;<span class="u">of 6</span></b>
+              <span class="lbl">Combined top six grew up outside the 50 states</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="an-wrap" style="padding-top:clamp(48px,6vw,84px);">
+      <div class="an-sec-head an-reveal"><h2>Key <span class="accent">Findings</span></h2></div>
+      <div class="an-rule an-reveal"></div>
+      <p class="an-copy an-reveal">Six numbers that tell the story of the 2026 rookie class &mdash; before a single snap, tip-off or opening night.</p>
+
+      <div class="an-kf-grid">
+        <div class="an-kf-card is-featured an-reveal">
+          <div class="an-kf-rank">1</div>
+          <h4>Mauigoa&#8217;s Move Is In A League Of Its Own</h4>
+          <p><strong>Francis Mauigoa (NY Giants) is the hardest adjustment in the entire series</strong>, topping both the NFL table (83.6) and the combined pool (69.5). Ili&#8217;ili, American Samoa to New York means 7,206 miles from home, a 19.2&deg;C winter shock and a city 2,700&times; bigger.</p>
+          <span class="an-kf-stat">NFL Index 83.6 / 100</span>
+        </div>
+        <div class="an-kf-card an-reveal">
+          <div class="an-kf-rank">2</div>
+          <h4>Okot Makes The Longest Trip In Pro Sports</h4>
+          <p><strong>Madina Okot (Atlanta Dream) tops the WNBA at 73.2</strong> with the two most extreme raw numbers anywhere in the index: 7,845 miles from Mumias, Kenya &mdash; the longest move of all 109 rookies &mdash; and a <strong>+166% cost-of-living jump</strong>.</p>
+          <span class="an-kf-stat">WNBA Index 73.2 / 100</span>
+        </div>
+        <div class="an-kf-card an-reveal">
+          <div class="an-kf-rank">3</div>
+          <h4>The Top Of The Index Speaks With An Accent</h4>
+          <p><strong>All six of the hardest combined adjustments belong to players who grew up outside the 50 states</strong>: American Samoa, Kenya, Canada, Spain (twice) and Germany. The global pipeline is real &mdash; and it comes with the steepest life change.</p>
+          <span class="an-kf-stat">Combined Top 6: 0 Mainland-US Hometowns</span>
+        </div>
+        <div class="an-kf-card an-reveal">
+          <div class="an-kf-rank">4</div>
+          <h4>De Larrea Leads An International NBA Class</h4>
+          <p><strong>Sergio De Larrea (Dallas Mavericks) tops the NBA table at 65.3</strong> after a 5,130-mile move from Valencia, Spain &mdash; nine points clear of the field &mdash; while Karim Lopez absorbs the series&#8217; biggest price shock inside the top five, Hermosillo to Memphis at +68%.</p>
+          <span class="an-kf-stat">NBA Index 65.3 / 100</span>
+        </div>
+        <div class="an-kf-card an-reveal">
+          <div class="an-kf-rank">5</div>
+          <h4>Seattle Is The WNBA&#8217;s Pressure Cooker</h4>
+          <p><strong>The Seattle Storm placed three rookies in the WNBA top five</strong> &mdash; Awa Fam Thiam (#2), Flau&#8217;jae Johnson (#4) and Taina Mair (#5). One roster, one of the league&#8217;s hottest markets, three of its toughest adjustments.</p>
+          <span class="an-kf-stat">3 Of The Top 5 Moves</span>
+        </div>
+        <div class="an-kf-card an-reveal">
+          <div class="an-kf-rank">6</div>
+          <h4>The Softest Landings Barely Left Home</h4>
+          <p><strong>Davison Igbinosun posts the lowest score anywhere in the index (11.9 NFL)</strong>, while Cameron Boozer (19.6) and Gianna Kneepkens (23.6) enjoy the gentlest moves in the NBA and WNBA &mdash; familiar weather, familiar prices, manageable spotlight.</p>
+          <span class="an-kf-stat">Series Low: 11.9 / 100</span>
+        </div>
+      </div>
+
+      <div style="margin-top:34px" class="an-reveal">
+        <div class="an-quote">
+          <blockquote>&ldquo;Fans grade a draft pick on scheme fit and highlight reels. The Culture Shock Index grades the part nobody talks about: a 21-year-old moving further from home than most people ever will, into a city that may be a thousand times bigger, twice as expensive and twenty degrees colder &mdash; with an entire market watching how they handle it. The tape tells you if a rookie can play. The map tells you what they&#8217;re playing through.&rdquo;</blockquote>
+          <cite>Action Network Spokesperson</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="an-sep">
+    <button class="an-sep-btn" type="button" data-scroll-menu><span class="up">&uarr;</span> Back to sections</button>
+  </div>
+  <!-- ============ COMBINED ============ -->
+  <section id="sec-combined" class="an-section alt">
+    <div class="an-wrap">
+      <div class="an-sec-head an-reveal"><span class="an-sec-num">01</span><h2>All Leagues <span class="accent">Combined</span></h2></div>
+      <div class="an-rule an-reveal"></div>
+      <div class="an-copy an-reveal">
+        <p><strong>One pool, 109 rookies, one set of rules.</strong> The combined table re-scores every player&#8217;s raw miles, prices, climate and city-size numbers against the whole class, not just their own league &mdash; the one legitimate cross-league view in the series.</p>
+        <p>Read it and the leagues blur: a WNBA centre from Kenya (#2) sits between two NFL linemen, and Spanish teenagers headed to Dallas and Seattle crack the top five. Cross-league fan pressure is directional only &mdash; a single venue scale favours NFL markets &mdash; so treat the per-league tables below as the definitive rankings.</p>
+      </div>
+      <div class="an-shell an-reveal">
+        <div class="an-shell-head">
+          <h3>Combined Culture Shock Ranking</h3>
+          <span class="note">Higher = harder life adjustment &middot; scored 0&ndash;100 within the 109-player pool</span>
+        </div>
+        <div class="an-tab-nav" role="tablist">
+          <button class="an-tab-btn active" type="button" data-tab="combined-chart">Top 10 Chart</button>
+          <button class="an-tab-btn" type="button" data-tab="combined-table">Full Table &middot; 109</button>
+        </div>
+        <div class="an-tab-panel active" id="combined-chart"><div class="an-bars" data-bars="combined"></div></div>
+        <div class="an-tab-panel" id="combined-table">
+          <div class="an-tools">
+            <input class="an-search" type="search" placeholder="Search player, team or hometown&hellip;" data-search="combined" aria-label="Search combined ranking">
+            <button class="an-chip active" type="button" data-filter="combined" data-league="ALL">All</button>
+            <button class="an-chip" type="button" data-filter="combined" data-league="NFL">NFL</button>
+            <button class="an-chip" type="button" data-filter="combined" data-league="NBA">NBA</button>
+            <button class="an-chip" type="button" data-filter="combined" data-league="WNBA">WNBA</button>
+          </div>
+          <div class="an-table-scroll" data-table="combined"></div>
+          <p class="an-count-note" data-count="combined"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="an-sep">
+    <button class="an-sep-btn" type="button" data-scroll-menu><span class="up">&uarr;</span> Back to sections</button>
+  </div>
+  <!-- ============ NFL ============ -->
+  <section id="sec-nfl" class="an-section">
+    <div class="an-wrap">
+      <div class="an-sec-head an-reveal"><span class="an-sec-num">02</span><h2>NFL <span class="accent">Ranking</span></h2></div>
+      <div class="an-rule an-reveal"></div>
+      <div class="an-copy an-reveal">
+        <p><strong>All 64 picks of Rounds 1&ndash;2, plus Denver&#8217;s first selection at No. 66</strong> &mdash; so every one of the 32 fanbases has a rookie in the table. Mauigoa&#8217;s 83.6 leads the class by nearly 15 points, the widest gap at the top of any league.</p>
+        <p>Behind him, the pattern is geography plus glare: Akheem Mesidor trades Ottawa winters for the LA spotlight (68.9), Kenyon Sadiq jumps from Idaho Falls to the Jets&#8217; market (61.1), and Marlin Klein&#8217;s road to Houston started 5,147 miles away in Cologne. At the other end, Davison Igbinosun&#8217;s Union, NJ&ndash;to&ndash;Buffalo move (11.9) is the softest landing of all 109 rookies.</p>
+      </div>
+      <div class="an-shell an-reveal">
+        <div class="an-shell-head">
+          <h3>NFL Culture Shock Ranking</h3>
+          <span class="note">Scored 0&ndash;100 within this 65-player group &middot; not comparable across leagues</span>
+        </div>
+        <div class="an-tab-nav" role="tablist">
+          <button class="an-tab-btn active" type="button" data-tab="nfl-chart">Top 10 Chart</button>
+          <button class="an-tab-btn" type="button" data-tab="nfl-table">Full Table &middot; 65</button>
+        </div>
+        <div class="an-tab-panel active" id="nfl-chart"><div class="an-bars" data-bars="nfl"></div></div>
+        <div class="an-tab-panel" id="nfl-table">
+          <div class="an-tools">
+            <input class="an-search" type="search" placeholder="Search player, team, college or hometown&hellip;" data-search="nfl" aria-label="Search NFL ranking">
+          </div>
+          <div class="an-table-scroll" data-table="nfl"></div>
+          <p class="an-count-note" data-count="nfl"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="an-sep">
+    <button class="an-sep-btn" type="button" data-scroll-menu><span class="up">&uarr;</span> Back to sections</button>
+  </div>
+  <!-- ============ NBA ============ -->
+  <section id="sec-nba" class="an-section alt">
+    <div class="an-wrap">
+      <div class="an-sec-head an-reveal"><span class="an-sec-num">03</span><h2>NBA <span class="accent">Ranking</span></h2></div>
+      <div class="an-rule an-reveal"></div>
+      <div class="an-copy an-reveal">
+        <p><strong>All 30 first-round picks</strong> &mdash; the players whose guaranteed rookie-scale deals lock in the move. Sergio De Larrea&#8217;s Valencia-to-Dallas leap tops the table at 65.3, and the international theme runs deep: Hannes Steinbach (W&uuml;rzburg &rarr; Charlotte) and Karim Lopez (Hermosillo &rarr; Memphis, with a +68% price jump) both land in the top four.</p>
+        <p>The floor tells its own story: Cameron Boozer&#8217;s Miami-to-Memphis switch (19.6) is the league&#8217;s gentlest adjustment &mdash; a two-hour flight, similar prices, a quieter market.</p>
+      </div>
+      <div class="an-shell an-reveal">
+        <div class="an-shell-head">
+          <h3>NBA Culture Shock Ranking</h3>
+          <span class="note">Scored 0&ndash;100 within this 30-player group &middot; not comparable across leagues</span>
+        </div>
+        <div class="an-tab-nav" role="tablist">
+          <button class="an-tab-btn active" type="button" data-tab="nba-chart">Top 10 Chart</button>
+          <button class="an-tab-btn" type="button" data-tab="nba-table">Full Table &middot; 30</button>
+        </div>
+        <div class="an-tab-panel active" id="nba-chart"><div class="an-bars" data-bars="nba"></div></div>
+        <div class="an-tab-panel" id="nba-table">
+          <div class="an-tools">
+            <input class="an-search" type="search" placeholder="Search player, team, college or hometown&hellip;" data-search="nba" aria-label="Search NBA ranking">
+          </div>
+          <div class="an-table-scroll" data-table="nba"></div>
+          <p class="an-count-note" data-count="nba"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="an-sep">
+    <button class="an-sep-btn" type="button" data-scroll-menu><span class="up">&uarr;</span> Back to sections</button>
+  </div>
+  <!-- ============ WNBA ============ -->
+  <section id="sec-wnba" class="an-section">
+    <div class="an-wrap">
+      <div class="an-sec-head an-reveal"><span class="an-sec-num">04</span><h2>WNBA <span class="accent">Ranking</span></h2></div>
+      <div class="an-rule an-reveal"></div>
+      <div class="an-copy an-reveal">
+        <p><strong>14 of 15 first-round picks &mdash; the fastest turnaround in US pro sports</strong>, with rookies joining their teams roughly five weeks after the draft. (No. 7 Iyana Martin Carri&oacute;n is excluded: she remains in Spain until 2027.) Madina Okot&#8217;s 73.2 leads on the back of the longest move and biggest price shock anywhere in the series.</p>
+        <p>Seattle dominates the pressure end of the table with three of the top five, while Gabriela Jaquez (#3) absorbs a 12.2&deg;C climate swing moving from Camarillo, California to Chicago. Six franchises have no row at all &mdash; their first-rounders were traded away, never held, or stayed overseas.</p>
+      </div>
+      <div class="an-shell an-reveal">
+        <div class="an-shell-head">
+          <h3>WNBA Culture Shock Ranking</h3>
+          <span class="note">Scored 0&ndash;100 within this 14-player group &middot; not comparable across leagues</span>
+        </div>
+        <div class="an-tab-nav" role="tablist">
+          <button class="an-tab-btn active" type="button" data-tab="wnba-chart">Top 10 Chart</button>
+          <button class="an-tab-btn" type="button" data-tab="wnba-table">Full Table &middot; 14</button>
+        </div>
+        <div class="an-tab-panel active" id="wnba-chart"><div class="an-bars" data-bars="wnba"></div></div>
+        <div class="an-tab-panel" id="wnba-table">
+          <div class="an-tools">
+            <input class="an-search" type="search" placeholder="Search player, team, college or hometown&hellip;" data-search="wnba" aria-label="Search WNBA ranking">
+          </div>
+          <div class="an-table-scroll" data-table="wnba"></div>
+          <p class="an-count-note" data-count="wnba"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="an-sep">
+    <button class="an-sep-btn" type="button" data-scroll-menu><span class="up">&uarr;</span> Back to sections</button>
+  </div>
+  <!-- ============ METHODOLOGY ============ -->
+  <section id="sec-method" class="an-section alt">
+    <div class="an-wrap">
+      <div class="an-sec-head an-reveal"><span class="an-sec-num">05</span><h2>Metho<span class="accent">dology</span></h2></div>
+      <div class="an-rule an-reveal"></div>
+      <p class="an-copy an-reveal">The Culture Shock Index is built on a single 0&ndash;100 metric, the Adjustment Index, computed identically across all three leagues. <strong>One shared engine across all three leagues.</strong> Six factors, weighted to total 100%, capture the real-life shock of a rookie&#8217;s move &mdash; how far, how expensive, how cold, how big, and how bright the spotlight.</p>
+
+      <div class="an-weights">
+        <div class="an-weight-card an-reveal">
+          <div class="an-weight-pct">20<small>Weight</small></div>
+          <div class="an-weight-body">
+            <h4>Distance: Hometown &rarr; Team City</h4>
+            <div class="an-weight-bar"><i data-w="20"></i></div>
+            <p>Straight-line miles from where the player grew up to their new home venue. Bigger = harder to get home; visits become flights, not drives.</p>
+            <p class="ex"><b>Class Extreme</b>Okot (WNBA): Mumias, Kenya to Atlanta = 7,845 miles, the longest in the series.</p>
+          </div>
+        </div>
+        <div class="an-weight-card an-reveal">
+          <div class="an-weight-pct">20<small>Weight</small></div>
+          <div class="an-weight-body">
+            <h4>Cost-Of-Living Change (BEA RPP)</h4>
+            <div class="an-weight-bar"><i data-w="20"></i></div>
+            <p>Price level of the team city vs the hometown, using official US Regional Price Parities. +28 means life costs about 28% more than back home; a negative number means it&#8217;s cheaper.</p>
+            <p class="ex"><b>Class Extreme</b>Lopez (NBA): Hermosillo, Mexico to Memphis = +68%, the largest jump among the men&#8217;s leagues.</p>
+          </div>
+        </div>
+        <div class="an-weight-card an-reveal">
+          <div class="an-weight-pct">15<small>Weight</small></div>
+          <div class="an-weight-body">
+            <h4>Distance: College &rarr; Team City</h4>
+            <div class="an-weight-bar"><i data-w="15"></i></div>
+            <p>The same straight-line miles, but from the college or club town &mdash; the life, friends and routines built over the last three or four years.</p>
+            <p class="ex"><b>Class Extreme</b>Klein (NFL): Ann Arbor to Houston, after already moving from Cologne, Germany.</p>
+          </div>
+        </div>
+        <div class="an-weight-card an-reveal">
+          <div class="an-weight-pct">15<small>Weight</small></div>
+          <div class="an-weight-body">
+            <h4>Climate Shift (70% Jan / 30% Jul)</h4>
+            <div class="an-weight-bar"><i data-w="15"></i></div>
+            <p>Weighted January and July temperature gaps in &deg;C. Winter counts more, because rookies hit their first pro winter mid-season. 0 = same climate; anything near 19 = total shock.</p>
+            <p class="ex"><b>Class Extreme</b>Mauigoa (NFL): American Samoa (Jan 28&deg;C) to New York (Jan 0.5&deg;C).</p>
+          </div>
+        </div>
+        <div class="an-weight-card an-reveal">
+          <div class="an-weight-pct">15<small>Weight</small></div>
+          <div class="an-weight-body">
+            <h4>City-Size Jump (log&#8321;&#8320; ratio)</h4>
+            <div class="an-weight-bar"><i data-w="15"></i></div>
+            <p>How many times bigger the new city is, in powers of ten: 1 = 10&times; bigger, 2 = 100&times;, 3 = 1,000&times;. Negative = moving somewhere smaller than home.</p>
+            <p class="ex"><b>Class Extreme</b>Mauigoa (NFL): Ili&#8217;ili (pop. 3,073) to New York City = 2,700&times; bigger.</p>
+          </div>
+        </div>
+        <div class="an-weight-card an-reveal">
+          <div class="an-weight-pct">15<small>Weight</small></div>
+          <div class="an-weight-body">
+            <h4>Fan &amp; Media Pressure</h4>
+            <div class="an-weight-bar"><i data-w="15"></i></div>
+            <p>A 0&ndash;1 composite: 50% TV-market rank (Nielsen DMA), 30% venue capacity, 20% sole-team-in-market. 0 = quiet market; 1 = maximum scrutiny.</p>
+            <p class="ex"><b>Class Extreme</b>The New York Giants market scores 0.90 of 1.00.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="an-steps">
+        <div class="an-step an-reveal"><b>Step 1 &middot; Measure</b><p>The six factors are computed from raw data for every player &mdash; haversine distances, BEA price parities, Jan/Jul climate normals, census populations and Nielsen market ranks.</p></div>
+        <div class="an-step an-reveal"><b>Step 2 &middot; Rescale</b><p>Each factor is stretched to 0&ndash;100 within its own table &mdash; the NFL&#8217;s 65 players, the NBA&#8217;s 30, the WNBA&#8217;s 14. The most extreme player gets 100, the least extreme 0, everyone else in proportion.</p></div>
+        <div class="an-step an-reveal"><b>Step 3 &middot; Blend</b><p>The six 0&ndash;100 scores combine using the weights above into one Adjustment Index. Higher = harder. It is a relative score, not a percentage.</p></div>
+      </div>
+
+      <div class="an-bands">
+        <div class="an-band b1 an-reveal"><b>60+</b><span>Extreme</span><p>A life turned upside down: transcontinental distance, real price shock, a market that never blinks.</p></div>
+        <div class="an-band b2 an-reveal"><b>35&ndash;60</b><span>Substantial</span><p>A serious adjustment on multiple fronts &mdash; the band where most tough moves in this class live.</p></div>
+        <div class="an-band b3 an-reveal"><b>Under 25</b><span>Soft Landing</span><p>Close to home, familiar climate and prices, a manageable spotlight.</p></div>
+      </div>
+
+      <div class="an-cover">
+        <div class="an-cover-card an-reveal"><h4>NFL</h4><div class="n">65</div><p>All 64 picks of Rounds 1&ndash;2 sign multi-year deals and report &mdash; plus No. 66 Tyler Onyedim, added after Denver traded out of the first two rounds, so all 32 fanbases have a row.</p></div>
+        <div class="an-cover-card nba an-reveal"><h4>NBA</h4><div class="n">30</div><p>Round 1 only: first-rounders get guaranteed rookie-scale contracts. Second-rounders are excluded &mdash; many sign two-way deals, play in G-League cities or stay overseas, so their &ldquo;NBA city&rdquo; is undefined.</p></div>
+        <div class="an-cover-card wnba an-reveal"><h4>WNBA</h4><div class="n">14</div><p>Round 1, 14 of 15: first-rounders join within about five weeks of the draft. No. 7 Iyana Martin Carri&oacute;n stays in Spain until 2027 and is excluded. Below Round 1, a WNBA pick is an audition, not a guaranteed relocation.</p></div>
+      </div>
+
+      <div class="an-callout an-reveal"><b>Good To Know</b>Scores are only meaningful within their own table &mdash; a 50 on the NFL tab is not a 50 on the NBA tab. The combined table re-runs the same scaling on the raw values of all 109 players; its fan-pressure component uses one venue scale (3,500&ndash;82,500 capacity), which structurally favours NFL markets, and the TV-market term understates small-market obsession in towns like Green Bay and Buffalo. International cost-of-living figures are estimates &mdash; BEA publishes US data only.</div>
+    </div>
+  </section>
+
+
+  <div class="an-sep on-alt">
+    <button class="an-sep-btn" type="button" data-scroll-menu><span class="up">&uarr;</span> Back to sections</button>
+  </div>
+  <!-- ============ FOOTER ============ -->
+  <footer class="an-footer">
+    <div class="an-wrap">
+      <div class="an-logo-lockup" aria-label="Action Network">
+        <svg class="an-logo-svg" viewBox="0 0 228 34" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Action Network">
+          <circle class="an-logo-circle" cx="13" cy="17" r="11"></circle>
+          <path class="an-logo-check" d="M8 17.3 l3.4 3.4 l6.8 -7.4"></path>
+          <text class="an-logo-word" x="30" y="22.4">ACTION NETWORK</text>
+        </svg>
+      </div>
+      <p><strong>Sources &amp; notes:</strong> Action Network analysis of the 2026 NFL, NBA and WNBA drafts (109 players). Cost of living: BEA Regional Price Parities, 2023 metro vintage (international figures estimated). Distances: haversine, city centre to venue. Climate: January/July normals. Populations: 2020 US Census city-proper counts (international: national censuses). Picks and teams: official league results, cross-checked against two independent recaps per league. Methodology v18, July 2026. Scores are relative within each table and are not percentages. Published as The Rookie Culture Shock Index.</p>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+const RAI = {"combined": [{"rank": 1, "lg": "NFL", "player": "Francis Mauigoa", "pos": "G", "team": "New York Giants", "home": "Ili'ili, American Samoa", "miles": 7206.0, "col": 28.4, "climate": 19.2, "city": 2700.9, "fan": 0.9, "idx": 69.5}, {"rank": 2, "lg": "WNBA", "player": "Madina Okot", "pos": "C", "team": "Atlanta Dream", "home": "Mumias, Kenya", "miles": 7845.0, "col": 165.5, "climate": 12.4, "city": 12.5, "fan": 0.64, "idx": 65.6}, {"rank": 3, "lg": "NFL", "player": "Akheem Mesidor", "pos": "OLB", "team": "Los Angeles Chargers", "home": "Ottawa, Ontario, Canada", "miles": 2370.0, "col": 53.8, "climate": 16.8, "city": 3.8, "fan": 0.84, "idx": 49.9}, {"rank": 4, "lg": "WNBA", "player": "Awa Fam Thiam", "pos": "C", "team": "Seattle Storm", "home": "Valencia, Spain", "miles": 5445.0, "col": 56.9, "climate": 6.3, "city": 0.9, "fan": 0.64, "idx": 49.5}, {"rank": 5, "lg": "NBA", "player": "Sergio De Larrea", "pos": "G", "team": "Dallas Mavericks", "home": "Valencia, Spain", "miles": 5130.0, "col": 43.5, "climate": 4.3, "city": 1.6, "fan": 0.73, "idx": 47.9}, {"rank": 6, "lg": "NFL", "player": "Marlin Klein", "pos": "TE", "team": "Houston Texans", "home": "Cologne, Germany", "miles": 5147.0, "col": 17.9, "climate": 8.9, "city": 2.1, "fan": 0.91, "idx": 45.3}, {"rank": 7, "lg": "NFL", "player": "Ty Simpson", "pos": "QB", "team": "Los Angeles Rams", "home": "Martin, Tennessee", "miles": 1668.0, "col": 24.9, "climate": 9.6, "city": 371.4, "fan": 0.84, "idx": 44.7}, {"rank": 8, "lg": "NFL", "player": "Makai Lemon", "pos": "WR", "team": "Philadelphia Eagles", "home": "Los Alamitos, California", "miles": 2386.0, "col": -10.4, "climate": 9.9, "city": 129.2, "fan": 0.91, "idx": 44.3}, {"rank": 9, "lg": "NFL", "player": "Kenyon Sadiq", "pos": "TE", "team": "New York Jets", "home": "Idaho Falls, Idaho", "miles": 1936.0, "col": 25.1, "climate": 5.1, "city": 122.1, "fan": 0.9, "idx": 43.0}, {"rank": 10, "lg": "NFL", "player": "David Bailey", "pos": "OLB", "team": "New York Jets", "home": "Orange, California", "miles": 2428.0, "col": -2.6, "climate": 9.7, "city": 59.7, "fan": 0.9, "idx": 42.2}, {"rank": 11, "lg": "NFL", "player": "De'Zhaun Stribling", "pos": "WR", "team": "San Francisco 49ers", "home": "Kapolei, Hawaii", "miles": 2420.0, "col": 2.5, "climate": 10.2, "city": 38.6, "fan": 0.87, "idx": 42.2}, {"rank": 12, "lg": "NFL", "player": "Max Klare", "pos": "TE", "team": "Los Angeles Rams", "home": "Cincinnati, Ohio", "miles": 1900.0, "col": 22.7, "climate": 10.7, "city": 12.6, "fan": 0.84, "idx": 41.6}, {"rank": 13, "lg": "NFL", "player": "Chase Bisontis", "pos": "G", "team": "Arizona Cardinals", "home": "Ramsey, New Jersey", "miles": 2141.0, "col": -6.2, "climate": 11.8, "city": 110.0, "fan": 0.82, "idx": 40.5}, {"rank": 14, "lg": "NFL", "player": "Caleb Lomu", "pos": "T", "team": "New England Patriots", "home": "Gilbert, Arizona", "miles": 2273.0, "col": 5.8, "climate": 12.9, "city": 2.4, "fan": 0.84, "idx": 40.4}, {"rank": 15, "lg": "NBA", "player": "Keaton Wagler", "pos": "G", "team": "LA Clippers", "home": "Champaign, Illinois", "miles": 1705.0, "col": 27.2, "climate": 13.0, "city": 44.3, "fan": 0.65, "idx": 40.4}, {"rank": 16, "lg": "NFL", "player": "Jeremiyah Love", "pos": "RB", "team": "Arizona Cardinals", "home": "University City, Missouri", "miles": 1271.0, "col": 9.6, "climate": 11.5, "city": 47.1, "fan": 0.82, "idx": 39.7}, {"rank": 17, "lg": "NFL", "player": "D'Angelo Ponds", "pos": "CB", "team": "New York Jets", "home": "Miami, Florida", "miles": 1097.0, "col": 0.6, "climate": 14.7, "city": 18.5, "fan": 0.9, "idx": 39.6}, {"rank": 18, "lg": "NFL", "player": "Kadyn Proctor", "pos": "T", "team": "Miami Dolphins", "home": "Des Moines, Iowa", "miles": 1322.0, "col": 20.6, "climate": 18.7, "city": 2.1, "fan": 0.77, "idx": 39.5}, {"rank": 19, "lg": "NBA", "player": "Karim Lopez", "pos": "F", "team": "Memphis Grizzlies", "home": "Hermosillo, Mexico", "miles": 1290.0, "col": 68.0, "climate": 9.4, "city": 0.7, "fan": 0.26, "idx": 38.7}, {"rank": 20, "lg": "NFL", "player": "Bud Clark", "pos": "S", "team": "Seattle Seahawks", "home": "Alexandria, Louisiana", "miles": 1932.0, "col": 31.1, "climate": 5.2, "city": 16.7, "fan": 0.83, "idx": 37.8}, {"rank": 21, "lg": "NFL", "player": "Jake Slaughter", "pos": "C", "team": "Los Angeles Chargers", "home": "Ocala, Florida", "miles": 2145.0, "col": 20.9, "climate": 1.9, "city": 60.9, "fan": 0.84, "idx": 37.7}, {"rank": 22, "lg": "NFL", "player": "Keylan Rutledge", "pos": "G", "team": "Houston Texans", "home": "Royston, Georgia", "miles": 787.0, "col": 3.6, "climate": 5.5, "city": 868.3, "fan": 0.91, "idx": 37.6}, {"rank": 23, "lg": "NFL", "player": "Gabe Jacas", "pos": "DE", "team": "New England Patriots", "home": "Port St. Lucie, Florida", "miles": 1145.0, "col": 9.7, "climate": 14.7, "city": 3.2, "fan": 0.84, "idx": 37.4}, {"rank": 24, "lg": "WNBA", "player": "Gabriela Jaquez", "pos": "G", "team": "Chicago Sky", "home": "Camarillo, California", "miles": 1778.0, "col": -9.6, "climate": 12.2, "city": 38.0, "fan": 0.71, "idx": 37.2}, {"rank": 25, "lg": "NBA", "player": "Alex Karaban", "pos": "F", "team": "Sacramento Kings", "home": "Southborough, Massachusetts", "miles": 2602.0, "col": 6.8, "climate": 7.8, "city": 50.0, "fan": 0.57, "idx": 36.6}, {"rank": 26, "lg": "NBA", "player": "Hannes Steinbach", "pos": "F/C", "team": "Charlotte Hornets", "home": "Wuerzburg, Germany", "miles": 4445.0, "col": 14.1, "climate": 4.9, "city": 7.0, "fan": 0.56, "idx": 36.4}, {"rank": 27, "lg": "NBA", "player": "Allen Graves", "pos": "G/F", "team": "Toronto Raptors", "home": "Santa Clara, California", "miles": 2253.0, "col": -22.1, "climate": 10.1, "city": 21.9, "fan": 0.73, "idx": 36.2}, {"rank": 28, "lg": "NFL", "player": "Caleb Downs", "pos": "S", "team": "Dallas Cowboys", "home": "Hoschton, Georgia", "miles": 774.0, "col": 2.4, "climate": 2.8, "city": 487.6, "fan": 0.96, "idx": 36.1}, {"rank": 29, "lg": "NFL", "player": "Tyler Onyedim", "pos": "DT", "team": "Denver Broncos", "home": "Richmond, Texas", "miles": 876.0, "col": 5.3, "climate": 9.8, "city": 61.5, "fan": 0.82, "idx": 35.9}, {"rank": 30, "lg": "NFL", "player": "Jake Golday", "pos": "LB", "team": "Minnesota Vikings", "home": "Arlington, Tennessee", "miles": 695.0, "col": 13.1, "climate": 11.3, "city": 29.6, "fan": 0.79, "idx": 35.5}, {"rank": 31, "lg": "NFL", "player": "Jadarian Price", "pos": "RB", "team": "Seattle Seahawks", "home": "Denison, Texas", "miles": 1643.0, "col": 23.1, "climate": 2.9, "city": 28.8, "fan": 0.83, "idx": 35.4}, {"rank": 32, "lg": "NFL", "player": "Colton Hood", "pos": "CB", "team": "New York Giants", "home": "McDonough, Georgia", "miles": 752.0, "col": 11.5, "climate": 3.8, "city": 286.2, "fan": 0.9, "idx": 35.1}, {"rank": 33, "lg": "NFL", "player": "Nate Boerkircher", "pos": "TE", "team": "Jacksonville Jaguars", "home": "Aurora, Nebraska", "miles": 1170.0, "col": 9.7, "climate": 12.2, "city": 202.1, "fan": 0.55, "idx": 35.1}, {"rank": 34, "lg": "NFL", "player": "Jacob Rodriguez", "pos": "LB", "team": "Miami Dolphins", "home": "Wichita Falls, Texas", "miles": 1221.0, "col": 25.8, "climate": 9.4, "city": 4.4, "fan": 0.77, "idx": 35.0}, {"rank": 35, "lg": "NFL", "player": "Kayden McDonald", "pos": "DT", "team": "Houston Texans", "home": "Suwanee, Georgia", "miles": 730.0, "col": -0.7, "climate": 5.1, "city": 109.5, "fan": 0.91, "idx": 34.4}, {"rank": 36, "lg": "NBA", "player": "Joshua Jefferson", "pos": "F", "team": "Brooklyn Nets", "home": "Las Vegas, Nevada", "miles": 2229.0, "col": 15.5, "climate": 8.0, "city": 12.6, "fan": 0.65, "idx": 33.7}, {"rank": 37, "lg": "NBA", "player": "Yaxel Lendeborg", "pos": "F", "team": "Golden State Warriors", "home": "Philadelphia, Pennsylvania", "miles": 2515.0, "col": 14.2, "climate": 9.6, "city": 0.5, "fan": 0.68, "idx": 33.5}, {"rank": 38, "lg": "NBA", "player": "Chris Cenac Jr.", "pos": "C", "team": "Boston Celtics", "home": "New Orleans, Louisiana", "miles": 1358.0, "col": 22.5, "climate": 10.9, "city": 1.8, "fan": 0.67, "idx": 33.2}, {"rank": 39, "lg": "WNBA", "player": "Flau'jae Johnson", "pos": "G", "team": "Seattle Storm", "home": "Savannah, Georgia", "miles": 2401.0, "col": 18.2, "climate": 6.0, "city": 5.1, "fan": 0.64, "idx": 33.2}, {"rank": 40, "lg": "NBA", "player": "Cameron Carr", "pos": "G", "team": "Los Angeles Lakers", "home": "Waco, Texas", "miles": 1238.0, "col": 27.2, "climate": 6.9, "city": 27.9, "fan": 0.65, "idx": 33.0}, {"rank": 41, "lg": "NBA", "player": "Mikel Brown Jr.", "pos": "G", "team": "Brooklyn Nets", "home": "Orlando, Florida", "miles": 938.0, "col": 11.3, "climate": 11.4, "city": 26.8, "fan": 0.65, "idx": 32.9}, {"rank": 42, "lg": "NFL", "player": "Eli Stowers", "pos": "TE", "team": "Philadelphia Eagles", "home": "Denton, Texas", "miles": 1299.0, "col": 0.2, "climate": 5.4, "city": 11.1, "fan": 0.91, "idx": 32.4}, {"rank": 43, "lg": "NFL", "player": "Chris Johnson", "pos": "CB", "team": "Miami Dolphins", "home": "Long Beach, California", "miles": 2323.0, "col": -3.2, "climate": 6.6, "city": 1.0, "fan": 0.77, "idx": 32.1}, {"rank": 44, "lg": "NFL", "player": "Denzel Boston", "pos": "WR", "team": "Cleveland Browns", "home": "Puyallup, Washington", "miles": 2020.0, "col": -17.7, "climate": 6.3, "city": 8.6, "fan": 0.77, "idx": 32.1}, {"rank": 45, "lg": "NFL", "player": "Malachi Lawrence", "pos": "DE", "team": "Dallas Cowboys", "home": "Louisville, Kentucky", "miles": 741.0, "col": 9.9, "climate": 6.1, "city": 2.1, "fan": 0.96, "idx": 31.8}, {"rank": 46, "lg": "NFL", "player": "CJ Allen", "pos": "LB", "team": "Indianapolis Colts", "home": "Barnesville, Georgia", "miles": 477.0, "col": -6.2, "climate": 7.9, "city": 338.5, "fan": 0.7, "idx": 31.2}, {"rank": 47, "lg": "NFL", "player": "Dillon Thieneman", "pos": "S", "team": "Chicago Bears", "home": "Westfield, Indiana", "miles": 148.0, "col": 8.5, "climate": 1.1, "city": 48.4, "fan": 0.9, "idx": 30.9}, {"rank": 48, "lg": "NFL", "player": "Arvell Reese", "pos": "LB", "team": "New York Giants", "home": "Cleveland, Ohio", "miles": 399.0, "col": 21.0, "climate": 3.2, "city": 23.1, "fan": 0.9, "idx": 30.9}, {"rank": 49, "lg": "NBA", "player": "Labaron Philon Jr.", "pos": "G", "team": "Philadelphia 76ers", "home": "Mobile, Alabama", "miles": 963.0, "col": 15.8, "climate": 7.6, "city": 8.4, "fan": 0.73, "idx": 30.8}, {"rank": 50, "lg": "NFL", "player": "R Mason Thomas", "pos": "DE", "team": "Kansas City Chiefs", "home": "Fort Lauderdale, Florida", "miles": 1220.0, "col": -16.5, "climate": 15.8, "city": 2.8, "fan": 0.67, "idx": 30.7}, {"rank": 51, "lg": "NFL", "player": "Omar Cooper Jr.", "pos": "WR", "team": "New York Jets", "home": "Indianapolis, Indiana", "miles": 640.0, "col": 18.9, "climate": 2.9, "city": 9.4, "fan": 0.9, "idx": 30.2}, {"rank": 52, "lg": "WNBA", "player": "Taina Mair", "pos": "G", "team": "Seattle Storm", "home": "Boston, Massachusetts", "miles": 2486.0, "col": 1.3, "climate": 6.1, "city": 1.2, "fan": 0.64, "idx": 30.2}, {"rank": 53, "lg": "WNBA", "player": "Nell Angloma", "pos": "F", "team": "Connecticut Sun", "home": "Montpellier, France", "miles": 3728.0, "col": 28.7, "climate": 6.4, "city": 0.1, "fan": 0.41, "idx": 30.1}, {"rank": 54, "lg": "NFL", "player": "Emmanuel McNeil-Warren", "pos": "S", "team": "Cleveland Browns", "home": "Tampa, Florida", "miles": 938.0, "col": -10.1, "climate": 14.6, "city": 0.9, "fan": 0.77, "idx": 29.8}, {"rank": 55, "lg": "NFL", "player": "Josiah Trotter", "pos": "LB", "team": "Tampa Bay Buccaneers", "home": "Philadelphia, Pennsylvania", "miles": 927.0, "col": -0.1, "climate": 10.9, "city": 0.3, "fan": 0.85, "idx": 29.6}, {"rank": 56, "lg": "NFL", "player": "Germie Bernard", "pos": "WR", "team": "Pittsburgh Steelers", "home": "Henderson, Nevada", "miles": 1909.0, "col": -3.1, "climate": 10.5, "city": 0.9, "fan": 0.69, "idx": 29.3}, {"rank": 57, "lg": "NFL", "player": "Keldric Faulk", "pos": "DE", "team": "Tennessee Titans", "home": "Ramer, Alabama", "miles": 286.0, "col": 7.3, "climate": 3.8, "city": 361.3, "fan": 0.71, "idx": 29.1}, {"rank": 58, "lg": "WNBA", "player": "Angela Dugalic", "pos": "F", "team": "Washington Mystics", "home": "Des Plaines, Illinois", "miles": 612.0, "col": 5.8, "climate": 5.5, "city": 11.3, "fan": 0.63, "idx": 28.4}, {"rank": 59, "lg": "NFL", "player": "Logan Jones", "pos": "C", "team": "Chicago Bears", "home": "Council Bluffs, Iowa", "miles": 428.0, "col": 10.9, "climate": 0.5, "city": 42.9, "fan": 0.9, "idx": 28.2}, {"rank": 60, "lg": "NBA", "player": "Darius Acuff Jr.", "pos": "G", "team": "Sacramento Kings", "home": "Detroit, Michigan", "miles": 2021.0, "col": 11.1, "climate": 8.3, "city": 0.8, "fan": 0.57, "idx": 28.2}, {"rank": 61, "lg": "NFL", "player": "Spencer Fano", "pos": "T", "team": "Cleveland Browns", "home": "Spanish Fork, Utah", "miles": 1561.0, "col": -2.1, "climate": 1.8, "city": 8.2, "fan": 0.77, "idx": 28.1}, {"rank": 62, "lg": "NBA", "player": "Caleb Wilson", "pos": "F", "team": "Chicago Bulls", "home": "Atlanta, Georgia", "miles": 590.0, "col": 1.7, "climate": 8.1, "city": 5.3, "fan": 0.75, "idx": 28.1}, {"rank": 63, "lg": "NFL", "player": "Vega Ioane", "pos": "G", "team": "Baltimore Ravens", "home": "Graham, Washington", "miles": 2328.0, "col": -9.1, "climate": 4.7, "city": 16.8, "fan": 0.68, "idx": 28.0}, {"rank": 64, "lg": "NBA", "player": "Brayden Burries", "pos": "G", "team": "Milwaukee Bucks", "home": "Riverside, California", "miles": 1703.0, "col": -11.5, "climate": 15.8, "city": 1.8, "fan": 0.39, "idx": 28.0}, {"rank": 65, "lg": "WNBA", "player": "Olivia Miles", "pos": "G", "team": "Minnesota Lynx", "home": "Phoenixville, Pennsylvania", "miles": 961.0, "col": 1.0, "climate": 7.1, "city": 22.6, "fan": 0.61, "idx": 27.8}, {"rank": 66, "lg": "NFL", "player": "Lee Hunter", "pos": "DT", "team": "Carolina Panthers", "home": "Mobile, Alabama", "miles": 521.0, "col": 8.5, "climate": 4.7, "city": 4.9, "fan": 0.77, "idx": 27.6}, {"rank": 67, "lg": "NFL", "player": "Max Iheanachor", "pos": "T", "team": "Pittsburgh Steelers", "home": "Los Angeles, California", "miles": 2131.0, "col": -18.3, "climate": 11.2, "city": 0.1, "fan": 0.69, "idx": 27.5}, {"rank": 68, "lg": "NFL", "player": "Fernando Mendoza", "pos": "QB", "team": "Las Vegas Raiders", "home": "Miami, Florida", "miles": 2180.0, "col": -12.9, "climate": 9.4, "city": 1.5, "fan": 0.55, "idx": 27.5}, {"rank": 69, "lg": "WNBA", "player": "Lauren Betts", "pos": "C", "team": "Washington Mystics", "home": "Centennial, Colorado", "miles": 1487.0, "col": 2.9, "climate": 2.5, "city": 6.3, "fan": 0.63, "idx": 27.2}, {"rank": 70, "lg": "WNBA", "player": "Kiki Rice", "pos": "G", "team": "Toronto Tempo", "home": "Bethesda, Maryland", "miles": 343.0, "col": -19.0, "climate": 4.7, "city": 41.2, "fan": 0.69, "idx": 27.2}, {"rank": 71, "lg": "NFL", "player": "Brandon Cisse", "pos": "CB", "team": "Green Bay Packers", "home": "Sumter, South Carolina", "miles": 839.0, "col": 6.7, "climate": 13.0, "city": 2.5, "fan": 0.5, "idx": 27.0}, {"rank": 72, "lg": "NBA", "player": "Morez Johnson Jr.", "pos": "F/C", "team": "Dallas Mavericks", "home": "Chicago, Illinois", "miles": 804.0, "col": 0.7, "climate": 10.0, "city": 0.5, "fan": 0.73, "idx": 27.0}, {"rank": 73, "lg": "NBA", "player": "Jayden Quaintance", "pos": "F/C", "team": "San Antonio Spurs", "home": "Cleveland, Ohio", "miles": 1254.0, "col": 0.8, "climate": 11.8, "city": 4.0, "fan": 0.46, "idx": 26.8}, {"rank": 74, "lg": "NBA", "player": "Aday Mara", "pos": "C", "team": "Oklahoma City Thunder", "home": "Zaragoza, Spain", "miles": 4949.0, "col": 26.4, "climate": 3.1, "city": 1.0, "fan": 0.3, "idx": 26.7}, {"rank": 75, "lg": "WNBA", "player": "Azzi Fudd", "pos": "G", "team": "Dallas Wings", "home": "Arlington, Virginia", "miles": 1195.0, "col": -4.9, "climate": 4.7, "city": 5.5, "fan": 0.68, "idx": 26.7}, {"rank": 76, "lg": "NFL", "player": "Peter Woods", "pos": "DT", "team": "Kansas City Chiefs", "home": "Alabaster, Alabama", "miles": 586.0, "col": 0.8, "climate": 6.2, "city": 15.3, "fan": 0.67, "idx": 26.6}, {"rank": 77, "lg": "WNBA", "player": "Cotie McMahon", "pos": "F", "team": "Washington Mystics", "home": "Centerville, Ohio", "miles": 387.0, "col": 17.7, "climate": 3.2, "city": 28.3, "fan": 0.63, "idx": 25.7}, {"rank": 78, "lg": "NBA", "player": "AJ Dybantsa", "pos": "F", "team": "Washington Wizards", "home": "Brockton, Massachusetts", "miles": 384.0, "col": -2.7, "climate": 3.5, "city": 6.5, "fan": 0.7, "idx": 25.0}, {"rank": 79, "lg": "NFL", "player": "TJ Parker", "pos": "DE", "team": "Buffalo Bills", "home": "Phenix City, Alabama", "miles": 788.0, "col": 6.3, "climate": 9.9, "city": 7.2, "fan": 0.46, "idx": 24.7}, {"rank": 80, "lg": "NFL", "player": "Caleb Banks", "pos": "DE", "team": "Minnesota Vikings", "home": "Detroit, Michigan", "miles": 541.0, "col": 6.6, "climate": 3.9, "city": 0.7, "fan": 0.79, "idx": 24.5}, {"rank": 81, "lg": "NBA", "player": "Tarris Reed Jr.", "pos": "C", "team": "San Antonio Spurs", "home": "St. Louis, Missouri", "miles": 791.0, "col": -2.7, "climate": 8.6, "city": 4.8, "fan": 0.46, "idx": 24.3}, {"rank": 82, "lg": "NFL", "player": "Blake Miller", "pos": "T", "team": "Detroit Lions", "home": "Strongsville, Ohio", "miles": 94.0, "col": 5.4, "climate": 0.7, "city": 13.7, "fan": 0.81, "idx": 23.9}, {"rank": 83, "lg": "NBA", "player": "Dailyn Swain", "pos": "G/F", "team": "Chicago Bulls", "home": "Columbus, Ohio", "miles": 278.0, "col": 8.6, "climate": 3.0, "city": 2.9, "fan": 0.75, "idx": 23.9}, {"rank": 84, "lg": "NFL", "player": "KC Concepcion", "pos": "WR", "team": "Cleveland Browns", "home": "Charlotte, North Carolina", "miles": 436.0, "col": -4.1, "climate": 6.7, "city": 0.4, "fan": 0.77, "idx": 23.7}, {"rank": 85, "lg": "NFL", "player": "Sonny Styles", "pos": "LB", "team": "Washington Commanders", "home": "Columbus, Ohio", "miles": 335.0, "col": 14.9, "climate": 2.7, "city": 0.7, "fan": 0.85, "idx": 23.7}, {"rank": 86, "lg": "NFL", "player": "Anthony Hill Jr.", "pos": "LB", "team": "Tennessee Titans", "home": "Denton, Texas", "miles": 623.0, "col": -5.7, "climate": 3.5, "city": 4.9, "fan": 0.71, "idx": 23.3}, {"rank": 87, "lg": "NFL", "player": "Christen Miller", "pos": "DT", "team": "New Orleans Saints", "home": "Ellenwood, Georgia", "miles": 426.0, "col": -9.7, "climate": 4.8, "city": 205.6, "fan": 0.48, "idx": 23.1}, {"rank": 88, "lg": "NFL", "player": "Monroe Freeling", "pos": "T", "team": "Carolina Panthers", "home": "Charleston, South Carolina", "miles": 177.0, "col": -3.6, "climate": 3.2, "city": 5.8, "fan": 0.77, "idx": 22.6}, {"rank": 89, "lg": "WNBA", "player": "Gianna Kneepkens", "pos": "G/F", "team": "Connecticut Sun", "home": "Duluth, Minnesota", "miles": 1054.0, "col": 15.4, "climate": 8.1, "city": 0.2, "fan": 0.41, "idx": 22.6}, {"rank": 90, "lg": "NBA", "player": "Ebuka Okorie", "pos": "G", "team": "Detroit Pistons", "home": "Manchester, New Hampshire", "miles": 591.0, "col": -6.8, "climate": 1.4, "city": 5.5, "fan": 0.64, "idx": 22.4}, {"rank": 91, "lg": "NFL", "player": "Treydan Stukes", "pos": "S", "team": "Las Vegas Raiders", "home": "Litchfield Park, Arizona", "miles": 241.0, "col": -7.7, "climate": 3.1, "city": 96.4, "fan": 0.55, "idx": 21.7}, {"rank": 92, "lg": "NBA", "player": "Kingston Flemings", "pos": "G", "team": "Atlanta Hawks", "home": "San Antonio, Texas", "miles": 881.0, "col": 7.7, "climate": 4.4, "city": 0.3, "fan": 0.69, "idx": 21.7}, {"rank": 93, "lg": "NFL", "player": "Derrick Moore", "pos": "DE", "team": "Detroit Lions", "home": "Baltimore, Maryland", "miles": 397.0, "col": -4.6, "climate": 3.9, "city": 1.1, "fan": 0.81, "idx": 21.6}, {"rank": 94, "lg": "NFL", "player": "Zion Young", "pos": "DE", "team": "Baltimore Ravens", "home": "Atlanta, Georgia", "miles": 576.0, "col": 1.8, "climate": 3.6, "city": 1.1, "fan": 0.68, "idx": 21.5}, {"rank": 95, "lg": "NFL", "player": "Rueben Bain Jr.", "pos": "DE", "team": "Tampa Bay Buccaneers", "home": "Miami, Florida", "miles": 209.0, "col": -7.5, "climate": 3.3, "city": 0.9, "fan": 0.85, "idx": 21.4}, {"rank": 96, "lg": "NFL", "player": "Mansoor Delane", "pos": "CB", "team": "Kansas City Chiefs", "home": "Silver Spring, Maryland", "miles": 936.0, "col": -14.1, "climate": 2.1, "city": 6.2, "fan": 0.67, "idx": 21.3}, {"rank": 97, "lg": "NBA", "player": "Zuby Ejiofor", "pos": "F/C", "team": "Atlanta Hawks", "home": "Garland, Texas", "miles": 709.0, "col": -2.3, "climate": 1.9, "city": 2.0, "fan": 0.69, "idx": 20.9}, {"rank": 98, "lg": "NBA", "player": "Darryn Peterson", "pos": "G", "team": "Utah Jazz", "home": "Canton, Ohio", "miles": 1589.0, "col": 8.9, "climate": 1.8, "city": 3.0, "fan": 0.49, "idx": 20.7}, {"rank": 99, "lg": "NFL", "player": "Carnell Tate", "pos": "WR", "team": "Tennessee Titans", "home": "Chicago, Illinois", "miles": 396.0, "col": -5.1, "climate": 6.3, "city": 0.3, "fan": 0.71, "idx": 20.0}, {"rank": 100, "lg": "NFL", "player": "Avieon Terrell", "pos": "CB", "team": "Atlanta Falcons", "home": "Atlanta, Georgia", "miles": 1.0, "col": 0.0, "climate": 0.0, "city": 1.0, "fan": 0.9, "idx": 20.0}, {"rank": 101, "lg": "WNBA", "player": "Raven Johnson", "pos": "G", "team": "Indiana Fever", "home": "Atlanta, Georgia", "miles": 427.0, "col": -6.2, "climate": 7.0, "city": 1.8, "fan": 0.51, "idx": 19.1}, {"rank": 102, "lg": "NBA", "player": "Nate Ament", "pos": "F", "team": "Milwaukee Bucks", "home": "Manassas, Virginia", "miles": 620.0, "col": -12.1, "climate": 6.1, "city": 13.6, "fan": 0.39, "idx": 18.6}, {"rank": 103, "lg": "NFL", "player": "Jordyn Tyson", "pos": "WR", "team": "New Orleans Saints", "home": "Allen, Texas", "miles": 445.0, "col": -11.8, "climate": 4.3, "city": 3.4, "fan": 0.48, "idx": 18.4}, {"rank": 104, "lg": "NBA", "player": "Koa Peat", "pos": "F", "team": "Phoenix Suns", "home": "Gilbert, Arizona", "miles": 18.0, "col": 0.0, "climate": 0.0, "city": 6.0, "fan": 0.64, "idx": 17.1}, {"rank": 105, "lg": "NFL", "player": "Cashius Howell", "pos": "DE", "team": "Cincinnati Bengals", "home": "Kansas City, Missouri", "miles": 539.0, "col": 0.9, "climate": 1.7, "city": 0.6, "fan": 0.58, "idx": 16.8}, {"rank": 106, "lg": "NBA", "player": "Cameron Boozer", "pos": "F", "team": "Memphis Grizzlies", "home": "Miami, Florida", "miles": 873.0, "col": -17.4, "climate": 10.7, "city": 1.4, "fan": 0.26, "idx": 16.5}, {"rank": 107, "lg": "NBA", "player": "Christian Anderson", "pos": "G", "team": "Charlotte Hornets", "home": "Atlanta, Georgia", "miles": 226.0, "col": -3.9, "climate": 0.7, "city": 1.8, "fan": 0.56, "idx": 16.5}, {"rank": 108, "lg": "NBA", "player": "Bennett Stirtz", "pos": "G", "team": "Oklahoma City Thunder", "home": "Liberty, Missouri", "miles": 312.0, "col": -2.5, "climate": 4.1, "city": 22.6, "fan": 0.3, "idx": 16.2}, {"rank": 109, "lg": "NFL", "player": "Davison Igbinosun", "pos": "CB", "team": "Buffalo Bills", "home": "Union, New Jersey", "miles": 274.0, "col": -16.1, "climate": 3.9, "city": 4.7, "fan": 0.46, "idx": 15.1}], "nfl": [{"rank": 1, "player": "Francis Mauigoa", "pos": "G", "team": "New York Giants", "college": "Miami (FL)", "home": "Ili'ili, American Samoa", "miles": 7206.0, "col": 28.4, "climate": 19.2, "city": 2700.9, "fan": 0.9, "idx": 83.6}, {"rank": 2, "player": "Akheem Mesidor", "pos": "OLB", "team": "Los Angeles Chargers", "college": "Miami (FL)", "home": "Ottawa, Ontario, Canada", "miles": 2370.0, "col": 53.8, "climate": 16.8, "city": 3.8, "fan": 0.71, "idx": 68.9}, {"rank": 3, "player": "Kenyon Sadiq", "pos": "TE", "team": "New York Jets", "college": "Oregon", "home": "Idaho Falls, Idaho", "miles": 1936.0, "col": 25.1, "climate": 5.1, "city": 122.1, "fan": 0.9, "idx": 61.1}, {"rank": 4, "player": "Ty Simpson", "pos": "QB", "team": "Los Angeles Rams", "college": "Alabama", "home": "Martin, Tennessee", "miles": 1668.0, "col": 24.9, "climate": 9.6, "city": 371.4, "fan": 0.71, "idx": 56.3}, {"rank": 5, "player": "Marlin Klein", "pos": "TE", "team": "Houston Texans", "college": "Michigan", "home": "Cologne, Germany", "miles": 5147.0, "col": 17.9, "climate": 8.9, "city": 2.1, "fan": 0.8, "idx": 54.2}, {"rank": 6, "player": "Max Klare", "pos": "TE", "team": "Los Angeles Rams", "college": "Ohio State", "home": "Cincinnati, Ohio", "miles": 1900.0, "col": 22.7, "climate": 10.7, "city": 12.6, "fan": 0.71, "idx": 53.7}, {"rank": 7, "player": "Makai Lemon", "pos": "WR", "team": "Philadelphia Eagles", "college": "USC", "home": "Los Alamitos, California", "miles": 2386.0, "col": -10.4, "climate": 9.9, "city": 129.2, "fan": 0.78, "idx": 52.7}, {"rank": 8, "player": "David Bailey", "pos": "OLB", "team": "New York Jets", "college": "Texas Tech", "home": "Orange, California", "miles": 2428.0, "col": -2.6, "climate": 9.7, "city": 59.7, "fan": 0.9, "idx": 51.9}, {"rank": 9, "player": "Jake Slaughter", "pos": "C", "team": "Los Angeles Chargers", "college": "Florida", "home": "Ocala, Florida", "miles": 2145.0, "col": 20.9, "climate": 1.9, "city": 60.9, "fan": 0.71, "idx": 50.2}, {"rank": 10, "player": "De'Zhaun Stribling", "pos": "WR", "team": "San Francisco 49ers", "college": "Ole Miss", "home": "Kapolei, Hawaii", "miles": 2420.0, "col": 2.5, "climate": 10.2, "city": 38.6, "fan": 0.72, "idx": 50.0}, {"rank": 11, "player": "Bud Clark", "pos": "S", "team": "Seattle Seahawks", "college": "TCU", "home": "Alexandria, Louisiana", "miles": 1932.0, "col": 31.1, "climate": 5.2, "city": 16.7, "fan": 0.69, "idx": 49.5}, {"rank": 12, "player": "Caleb Lomu", "pos": "T", "team": "New England Patriots", "college": "Utah", "home": "Gilbert, Arizona", "miles": 2273.0, "col": 5.8, "climate": 12.9, "city": 2.4, "fan": 0.66, "idx": 48.6}, {"rank": 13, "player": "Jadarian Price", "pos": "RB", "team": "Seattle Seahawks", "college": "Notre Dame", "home": "Denison, Texas", "miles": 1643.0, "col": 23.1, "climate": 2.9, "city": 28.8, "fan": 0.69, "idx": 46.3}, {"rank": 14, "player": "Jeremiyah Love", "pos": "RB", "team": "Arizona Cardinals", "college": "Notre Dame", "home": "University City, Missouri", "miles": 1271.0, "col": 9.6, "climate": 11.5, "city": 47.1, "fan": 0.62, "idx": 45.6}, {"rank": 14, "player": "D'Angelo Ponds", "pos": "CB", "team": "New York Jets", "college": "Indiana", "home": "Miami, Florida", "miles": 1097.0, "col": 0.6, "climate": 14.7, "city": 18.5, "fan": 0.9, "idx": 45.6}, {"rank": 16, "player": "Kadyn Proctor", "pos": "T", "team": "Miami Dolphins", "college": "Alabama", "home": "Des Moines, Iowa", "miles": 1322.0, "col": 20.6, "climate": 18.7, "city": 2.1, "fan": 0.59, "idx": 43.9}, {"rank": 17, "player": "Jacob Rodriguez", "pos": "LB", "team": "Miami Dolphins", "college": "Texas Tech", "home": "Wichita Falls, Texas", "miles": 1221.0, "col": 25.8, "climate": 9.4, "city": 4.4, "fan": 0.59, "idx": 43.3}, {"rank": 18, "player": "Caleb Downs", "pos": "S", "team": "Dallas Cowboys", "college": "Ohio State", "home": "Hoschton, Georgia", "miles": 774.0, "col": 2.4, "climate": 2.8, "city": 487.6, "fan": 0.94, "idx": 43.1}, {"rank": 19, "player": "Colton Hood", "pos": "CB", "team": "New York Giants", "college": "Tennessee", "home": "McDonough, Georgia", "miles": 752.0, "col": 11.5, "climate": 3.8, "city": 286.2, "fan": 0.9, "idx": 42.9}, {"rank": 20, "player": "Keylan Rutledge", "pos": "G", "team": "Houston Texans", "college": "Georgia Tech", "home": "Royston, Georgia", "miles": 787.0, "col": 3.6, "climate": 5.5, "city": 868.3, "fan": 0.8, "idx": 41.7}, {"rank": 21, "player": "Chase Bisontis", "pos": "G", "team": "Arizona Cardinals", "college": "Texas A&M", "home": "Ramsey, New Jersey", "miles": 2141.0, "col": -6.2, "climate": 11.8, "city": 110.0, "fan": 0.62, "idx": 41.5}, {"rank": 22, "player": "Tyler Onyedim", "pos": "DT", "team": "Denver Broncos", "college": "Texas A&M", "home": "Richmond, Texas", "miles": 876.0, "col": 5.3, "climate": 9.8, "city": 61.5, "fan": 0.75, "idx": 41.3}, {"rank": 23, "player": "Gabe Jacas", "pos": "DE", "team": "New England Patriots", "college": "Illinois", "home": "Port St. Lucie, Florida", "miles": 1145.0, "col": 9.7, "climate": 14.7, "city": 3.2, "fan": 0.66, "idx": 40.9}, {"rank": 24, "player": "Malachi Lawrence", "pos": "DE", "team": "Dallas Cowboys", "college": "UCF", "home": "Louisville, Kentucky", "miles": 741.0, "col": 9.9, "climate": 6.1, "city": 2.1, "fan": 0.94, "idx": 40.2}, {"rank": 25, "player": "Arvell Reese", "pos": "LB", "team": "New York Giants", "college": "Ohio State", "home": "Cleveland, Ohio", "miles": 399.0, "col": 21.0, "climate": 3.2, "city": 23.1, "fan": 0.9, "idx": 39.5}, {"rank": 26, "player": "Chris Johnson", "pos": "CB", "team": "Miami Dolphins", "college": "San Diego State", "home": "Long Beach, California", "miles": 2323.0, "col": -3.2, "climate": 6.6, "city": 1.0, "fan": 0.59, "idx": 39.3}, {"rank": 26, "player": "Omar Cooper Jr.", "pos": "WR", "team": "New York Jets", "college": "Indiana", "home": "Indianapolis, Indiana", "miles": 640.0, "col": 18.9, "climate": 2.9, "city": 9.4, "fan": 0.9, "idx": 39.3}, {"rank": 28, "player": "Kayden McDonald", "pos": "DT", "team": "Houston Texans", "college": "Ohio State", "home": "Suwanee, Georgia", "miles": 730.0, "col": -0.7, "climate": 5.1, "city": 109.5, "fan": 0.8, "idx": 38.9}, {"rank": 29, "player": "Jake Golday", "pos": "LB", "team": "Minnesota Vikings", "college": "Cincinnati", "home": "Arlington, Tennessee", "miles": 695.0, "col": 13.1, "climate": 11.3, "city": 29.6, "fan": 0.63, "idx": 38.7}, {"rank": 30, "player": "Nate Boerkircher", "pos": "TE", "team": "Jacksonville Jaguars", "college": "Texas A&M", "home": "Aurora, Nebraska", "miles": 1170.0, "col": 9.7, "climate": 12.2, "city": 202.1, "fan": 0.39, "idx": 38.2}, {"rank": 31, "player": "Dillon Thieneman", "pos": "S", "team": "Chicago Bears", "college": "Oregon", "home": "Westfield, Indiana", "miles": 148.0, "col": 8.5, "climate": 1.1, "city": 48.4, "fan": 0.68, "idx": 37.2}, {"rank": 32, "player": "Denzel Boston", "pos": "WR", "team": "Cleveland Browns", "college": "Washington", "home": "Puyallup, Washington", "miles": 2020.0, "col": -17.7, "climate": 6.3, "city": 8.6, "fan": 0.61, "idx": 36.3}, {"rank": 33, "player": "Eli Stowers", "pos": "TE", "team": "Philadelphia Eagles", "college": "Vanderbilt", "home": "Denton, Texas", "miles": 1299.0, "col": 0.2, "climate": 5.4, "city": 11.1, "fan": 0.78, "idx": 35.1}, {"rank": 34, "player": "Lee Hunter", "pos": "DT", "team": "Carolina Panthers", "college": "Texas Tech", "home": "Mobile, Alabama", "miles": 521.0, "col": 8.5, "climate": 4.7, "city": 4.9, "fan": 0.69, "idx": 34.5}, {"rank": 35, "player": "Spencer Fano", "pos": "T", "team": "Cleveland Browns", "college": "Utah", "home": "Spanish Fork, Utah", "miles": 1561.0, "col": -2.1, "climate": 1.8, "city": 8.2, "fan": 0.61, "idx": 33.0}, {"rank": 36, "player": "Brandon Cisse", "pos": "CB", "team": "Green Bay Packers", "college": "South Carolina", "home": "Sumter, South Carolina", "miles": 839.0, "col": 6.7, "climate": 13.0, "city": 2.5, "fan": 0.48, "idx": 32.8}, {"rank": 36, "player": "Josiah Trotter", "pos": "LB", "team": "Tampa Bay Buccaneers", "college": "Missouri", "home": "Philadelphia, Pennsylvania", "miles": 927.0, "col": -0.1, "climate": 10.9, "city": 0.3, "fan": 0.71, "idx": 32.8}, {"rank": 38, "player": "Max Iheanachor", "pos": "T", "team": "Pittsburgh Steelers", "college": "Arizona State", "home": "Los Angeles, California", "miles": 2131.0, "col": -18.3, "climate": 11.2, "city": 0.1, "fan": 0.54, "idx": 30.7}, {"rank": 39, "player": "Keldric Faulk", "pos": "DE", "team": "Tennessee Titans", "college": "Auburn", "home": "Ramer, Alabama", "miles": 286.0, "col": 7.3, "climate": 3.8, "city": 361.3, "fan": 0.57, "idx": 30.2}, {"rank": 39, "player": "Germie Bernard", "pos": "WR", "team": "Pittsburgh Steelers", "college": "Alabama", "home": "Henderson, Nevada", "miles": 1909.0, "col": -3.1, "climate": 10.5, "city": 0.9, "fan": 0.54, "idx": 30.2}, {"rank": 39, "player": "Peter Woods", "pos": "DT", "team": "Kansas City Chiefs", "college": "Clemson", "home": "Alabaster, Alabama", "miles": 586.0, "col": 0.8, "climate": 6.2, "city": 15.3, "fan": 0.61, "idx": 30.2}, {"rank": 42, "player": "CJ Allen", "pos": "LB", "team": "Indianapolis Colts", "college": "Georgia", "home": "Barnesville, Georgia", "miles": 477.0, "col": -6.2, "climate": 7.9, "city": 338.5, "fan": 0.53, "idx": 30.1}, {"rank": 43, "player": "R Mason Thomas", "pos": "DE", "team": "Kansas City Chiefs", "college": "Oklahoma", "home": "Fort Lauderdale, Florida", "miles": 1220.0, "col": -16.5, "climate": 15.8, "city": 2.8, "fan": 0.61, "idx": 29.8}, {"rank": 44, "player": "Fernando Mendoza", "pos": "QB", "team": "Las Vegas Raiders", "college": "Indiana", "home": "Miami, Florida", "miles": 2180.0, "col": -12.9, "climate": 9.4, "city": 1.5, "fan": 0.37, "idx": 29.2}, {"rank": 45, "player": "Caleb Banks", "pos": "DE", "team": "Minnesota Vikings", "college": "Florida", "home": "Detroit, Michigan", "miles": 541.0, "col": 6.6, "climate": 3.9, "city": 0.7, "fan": 0.63, "idx": 29.0}, {"rank": 46, "player": "Logan Jones", "pos": "C", "team": "Chicago Bears", "college": "Iowa", "home": "Council Bluffs, Iowa", "miles": 428.0, "col": 10.9, "climate": 0.5, "city": 42.9, "fan": 0.68, "idx": 28.3}, {"rank": 47, "player": "Emmanuel McNeil-Warren", "pos": "S", "team": "Cleveland Browns", "college": "Toledo", "home": "Tampa, Florida", "miles": 938.0, "col": -10.1, "climate": 14.6, "city": 0.9, "fan": 0.61, "idx": 26.9}, {"rank": 48, "player": "TJ Parker", "pos": "DE", "team": "Buffalo Bills", "college": "Clemson", "home": "Phenix City, Alabama", "miles": 788.0, "col": 6.3, "climate": 9.9, "city": 7.2, "fan": 0.34, "idx": 26.7}, {"rank": 49, "player": "Vega Ioane", "pos": "G", "team": "Baltimore Ravens", "college": "Penn State", "home": "Graham, Washington", "miles": 2328.0, "col": -9.1, "climate": 4.7, "city": 16.8, "fan": 0.56, "idx": 26.4}, {"rank": 50, "player": "KC Concepcion", "pos": "WR", "team": "Cleveland Browns", "college": "Texas A&M", "home": "Charlotte, North Carolina", "miles": 436.0, "col": -4.1, "climate": 6.7, "city": 0.4, "fan": 0.61, "idx": 26.0}, {"rank": 51, "player": "Blake Miller", "pos": "T", "team": "Detroit Lions", "college": "Clemson", "home": "Strongsville, Ohio", "miles": 94.0, "col": 5.4, "climate": 0.7, "city": 13.7, "fan": 0.62, "idx": 24.9}, {"rank": 52, "player": "Sonny Styles", "pos": "LB", "team": "Washington Commanders", "college": "Ohio State", "home": "Columbus, Ohio", "miles": 335.0, "col": 14.9, "climate": 2.7, "city": 0.7, "fan": 0.64, "idx": 24.8}, {"rank": 53, "player": "Zion Young", "pos": "DE", "team": "Baltimore Ravens", "college": "Missouri", "home": "Atlanta, Georgia", "miles": 576.0, "col": 1.8, "climate": 3.6, "city": 1.1, "fan": 0.56, "idx": 24.3}, {"rank": 54, "player": "Anthony Hill Jr.", "pos": "LB", "team": "Tennessee Titans", "college": "Texas", "home": "Denton, Texas", "miles": 623.0, "col": -5.7, "climate": 3.5, "city": 4.9, "fan": 0.57, "idx": 24.2}, {"rank": 55, "player": "Monroe Freeling", "pos": "T", "team": "Carolina Panthers", "college": "Georgia", "home": "Charleston, South Carolina", "miles": 177.0, "col": -3.6, "climate": 3.2, "city": 5.8, "fan": 0.69, "idx": 23.0}, {"rank": 56, "player": "Christen Miller", "pos": "DT", "team": "New Orleans Saints", "college": "Georgia", "home": "Ellenwood, Georgia", "miles": 426.0, "col": -9.7, "climate": 4.8, "city": 205.6, "fan": 0.39, "idx": 22.4}, {"rank": 57, "player": "Mansoor Delane", "pos": "CB", "team": "Kansas City Chiefs", "college": "LSU", "home": "Silver Spring, Maryland", "miles": 936.0, "col": -14.1, "climate": 2.1, "city": 6.2, "fan": 0.61, "idx": 22.0}, {"rank": 58, "player": "Jordyn Tyson", "pos": "WR", "team": "New Orleans Saints", "college": "Arizona State", "home": "Allen, Texas", "miles": 445.0, "col": -11.8, "climate": 4.3, "city": 3.4, "fan": 0.39, "idx": 20.7}, {"rank": 59, "player": "Avieon Terrell", "pos": "CB", "team": "Atlanta Falcons", "college": "Clemson", "home": "Atlanta, Georgia", "miles": 1.0, "col": 0.0, "climate": 0.0, "city": 1.0, "fan": 0.78, "idx": 20.2}, {"rank": 60, "player": "Rueben Bain Jr.", "pos": "DE", "team": "Tampa Bay Buccaneers", "college": "Miami (FL)", "home": "Miami, Florida", "miles": 209.0, "col": -7.5, "climate": 3.3, "city": 0.9, "fan": 0.71, "idx": 20.0}, {"rank": 61, "player": "Carnell Tate", "pos": "WR", "team": "Tennessee Titans", "college": "Ohio State", "home": "Chicago, Illinois", "miles": 396.0, "col": -5.1, "climate": 6.3, "city": 0.3, "fan": 0.57, "idx": 19.1}, {"rank": 62, "player": "Treydan Stukes", "pos": "S", "team": "Las Vegas Raiders", "college": "Arizona", "home": "Litchfield Park, Arizona", "miles": 241.0, "col": -7.7, "climate": 3.1, "city": 96.4, "fan": 0.37, "idx": 18.9}, {"rank": 63, "player": "Derrick Moore", "pos": "DE", "team": "Detroit Lions", "college": "Michigan", "home": "Baltimore, Maryland", "miles": 397.0, "col": -4.6, "climate": 3.9, "city": 1.1, "fan": 0.62, "idx": 18.8}, {"rank": 64, "player": "Cashius Howell", "pos": "DE", "team": "Cincinnati Bengals", "college": "Texas A&M", "home": "Kansas City, Missouri", "miles": 539.0, "col": 0.9, "climate": 1.7, "city": 0.6, "fan": 0.4, "idx": 17.9}, {"rank": 65, "player": "Davison Igbinosun", "pos": "CB", "team": "Buffalo Bills", "college": "Ohio State", "home": "Union, New Jersey", "miles": 274.0, "col": -16.1, "climate": 3.9, "city": 4.7, "fan": 0.34, "idx": 11.9}], "nba": [{"rank": 1, "player": "Sergio De Larrea", "pos": "G", "team": "Dallas Mavericks", "college": "Valencia (Spain)", "home": "Valencia, Spain", "miles": 5130.0, "col": 43.5, "climate": 4.3, "city": 1.6, "fan": 0.85, "idx": 65.3}, {"rank": 2, "player": "Keaton Wagler", "pos": "G", "team": "LA Clippers", "college": "Illinois", "home": "Champaign, Illinois", "miles": 1705.0, "col": 27.2, "climate": 13.0, "city": 44.3, "fan": 0.69, "idx": 56.2}, {"rank": 3, "player": "Hannes Steinbach", "pos": "F/C", "team": "Charlotte Hornets", "college": "Washington", "home": "Wuerzburg, Germany", "miles": 4445.0, "col": 14.1, "climate": 4.9, "city": 7.0, "fan": 0.68, "idx": 51.6}, {"rank": 4, "player": "Karim Lopez", "pos": "F", "team": "Memphis Grizzlies", "college": "NZ Breakers", "home": "Hermosillo, Mexico", "miles": 1290.0, "col": 68.0, "climate": 9.4, "city": 0.7, "fan": 0.29, "idx": 51.1}, {"rank": 5, "player": "Alex Karaban", "pos": "F", "team": "Sacramento Kings", "college": "UConn", "home": "Southborough, Massachusetts", "miles": 2602.0, "col": 6.8, "climate": 7.8, "city": 50.0, "fan": 0.58, "idx": 50.0}, {"rank": 6, "player": "Allen Graves", "pos": "G/F", "team": "Toronto Raptors", "college": "Santa Clara", "home": "Santa Clara, California", "miles": 2253.0, "col": -22.1, "climate": 10.1, "city": 21.9, "fan": 0.89, "idx": 48.1}, {"rank": 7, "player": "Cameron Carr", "pos": "G", "team": "Los Angeles Lakers", "college": "Baylor", "home": "Waco, Texas", "miles": 1238.0, "col": 27.2, "climate": 6.9, "city": 27.9, "fan": 0.76, "idx": 47.8}, {"rank": 8, "player": "Joshua Jefferson", "pos": "F", "team": "Brooklyn Nets", "college": "Iowa State", "home": "Las Vegas, Nevada", "miles": 2229.0, "col": 15.5, "climate": 8.0, "city": 12.6, "fan": 0.68, "idx": 45.6}, {"rank": 9, "player": "Mikel Brown Jr.", "pos": "G", "team": "Brooklyn Nets", "college": "Louisville", "home": "Orlando, Florida", "miles": 938.0, "col": 11.3, "climate": 11.4, "city": 26.8, "fan": 0.68, "idx": 44.4}, {"rank": 10, "player": "Labaron Philon Jr.", "pos": "G", "team": "Philadelphia 76ers", "college": "Alabama", "home": "Mobile, Alabama", "miles": 963.0, "col": 15.8, "climate": 7.6, "city": 8.4, "fan": 0.93, "idx": 44.2}, {"rank": 11, "player": "Chris Cenac Jr.", "pos": "C", "team": "Boston Celtics", "college": "Houston", "home": "New Orleans, Louisiana", "miles": 1358.0, "col": 22.5, "climate": 10.9, "city": 1.8, "fan": 0.79, "idx": 44.1}, {"rank": 12, "player": "Yaxel Lendeborg", "pos": "F", "team": "Golden State Warriors", "college": "Michigan", "home": "Philadelphia, Pennsylvania", "miles": 2515.0, "col": 14.2, "climate": 9.6, "city": 0.5, "fan": 0.72, "idx": 41.2}, {"rank": 13, "player": "Caleb Wilson", "pos": "F", "team": "Chicago Bulls", "college": "North Carolina", "home": "Atlanta, Georgia", "miles": 590.0, "col": 1.7, "climate": 8.1, "city": 5.3, "fan": 0.98, "idx": 39.4}, {"rank": 14, "player": "Aday Mara", "pos": "C", "team": "Oklahoma City Thunder", "college": "Michigan", "home": "Zaragoza, Spain", "miles": 4949.0, "col": 26.4, "climate": 3.1, "city": 1.0, "fan": 0.36, "idx": 39.3}, {"rank": 15, "player": "Jayden Quaintance", "pos": "F/C", "team": "San Antonio Spurs", "college": "Kentucky", "home": "Cleveland, Ohio", "miles": 1254.0, "col": 0.8, "climate": 11.8, "city": 4.0, "fan": 0.53, "idx": 35.3}, {"rank": 16, "player": "Darius Acuff Jr.", "pos": "G", "team": "Sacramento Kings", "college": "Arkansas", "home": "Detroit, Michigan", "miles": 2021.0, "col": 11.1, "climate": 8.3, "city": 0.8, "fan": 0.58, "idx": 34.8}, {"rank": 17, "player": "AJ Dybantsa", "pos": "F", "team": "Washington Wizards", "college": "BYU", "home": "Brockton, Massachusetts", "miles": 384.0, "col": -2.7, "climate": 3.5, "city": 6.5, "fan": 0.89, "idx": 34.3}, {"rank": 18, "player": "Dailyn Swain", "pos": "G/F", "team": "Chicago Bulls", "college": "Texas", "home": "Columbus, Ohio", "miles": 278.0, "col": 8.6, "climate": 3.0, "city": 2.9, "fan": 0.98, "idx": 33.7}, {"rank": 19, "player": "Brayden Burries", "pos": "G", "team": "Milwaukee Bucks", "college": "Arizona", "home": "Riverside, California", "miles": 1703.0, "col": -11.5, "climate": 15.8, "city": 1.8, "fan": 0.39, "idx": 33.6}, {"rank": 20, "player": "Morez Johnson Jr.", "pos": "F/C", "team": "Dallas Mavericks", "college": "Michigan", "home": "Chicago, Illinois", "miles": 804.0, "col": 0.7, "climate": 10.0, "city": 0.5, "fan": 0.85, "idx": 32.5}, {"rank": 21, "player": "Tarris Reed Jr.", "pos": "C", "team": "San Antonio Spurs", "college": "UConn", "home": "St. Louis, Missouri", "miles": 791.0, "col": -2.7, "climate": 8.6, "city": 4.8, "fan": 0.53, "idx": 31.7}, {"rank": 22, "player": "Ebuka Okorie", "pos": "G", "team": "Detroit Pistons", "college": "Stanford", "home": "Manchester, New Hampshire", "miles": 591.0, "col": -6.8, "climate": 1.4, "city": 5.5, "fan": 0.83, "idx": 30.8}, {"rank": 23, "player": "Darryn Peterson", "pos": "G", "team": "Utah Jazz", "college": "Kansas", "home": "Canton, Ohio", "miles": 1589.0, "col": 8.9, "climate": 1.8, "city": 3.0, "fan": 0.55, "idx": 28.4}, {"rank": 24, "player": "Bennett Stirtz", "pos": "G", "team": "Oklahoma City Thunder", "college": "Iowa", "home": "Liberty, Missouri", "miles": 312.0, "col": -2.5, "climate": 4.1, "city": 22.6, "fan": 0.36, "idx": 24.3}, {"rank": 24, "player": "Nate Ament", "pos": "F", "team": "Milwaukee Bucks", "college": "Tennessee", "home": "Manassas, Virginia", "miles": 620.0, "col": -12.1, "climate": 6.1, "city": 13.6, "fan": 0.39, "idx": 24.3}, {"rank": 26, "player": "Zuby Ejiofor", "pos": "F/C", "team": "Atlanta Hawks", "college": "St. John's", "home": "Garland, Texas", "miles": 709.0, "col": -2.3, "climate": 1.9, "city": 2.0, "fan": 0.64, "idx": 23.1}, {"rank": 27, "player": "Kingston Flemings", "pos": "G", "team": "Atlanta Hawks", "college": "Houston", "home": "San Antonio, Texas", "miles": 881.0, "col": 7.7, "climate": 4.4, "city": 0.3, "fan": 0.64, "idx": 22.9}, {"rank": 28, "player": "Christian Anderson", "pos": "G", "team": "Charlotte Hornets", "college": "Texas Tech", "home": "Atlanta, Georgia", "miles": 226.0, "col": -3.9, "climate": 0.7, "city": 1.8, "fan": 0.68, "idx": 21.0}, {"rank": 29, "player": "Koa Peat", "pos": "F", "team": "Phoenix Suns", "college": "Arizona", "home": "Gilbert, Arizona", "miles": 18.0, "col": 0.0, "climate": 0.0, "city": 6.0, "fan": 0.62, "idx": 20.7}, {"rank": 30, "player": "Cameron Boozer", "pos": "F", "team": "Memphis Grizzlies", "college": "Duke", "home": "Miami, Florida", "miles": 873.0, "col": -17.4, "climate": 10.7, "city": 1.4, "fan": 0.29, "idx": 19.6}], "wnba": [{"rank": 1, "player": "Madina Okot", "pos": "C", "team": "Atlanta Dream", "college": "South Carolina", "home": "Mumias, Kenya", "miles": 7845.0, "col": 165.5, "climate": 12.4, "city": 12.5, "fan": 0.64, "idx": 73.2}, {"rank": 2, "player": "Awa Fam Thiam", "pos": "C", "team": "Seattle Storm", "college": "Valencia (Spain)", "home": "Valencia, Spain", "miles": 5445.0, "col": 56.9, "climate": 6.3, "city": 0.9, "fan": 0.87, "idx": 63.9}, {"rank": 3, "player": "Gabriela Jaquez", "pos": "G", "team": "Chicago Sky", "college": "UCLA", "home": "Camarillo, California", "miles": 1778.0, "col": -9.6, "climate": 12.2, "city": 38.0, "fan": 0.81, "idx": 51.5}, {"rank": 4, "player": "Flau'jae Johnson", "pos": "G", "team": "Seattle Storm", "college": "LSU", "home": "Savannah, Georgia", "miles": 2401.0, "col": 18.2, "climate": 6.0, "city": 5.1, "fan": 0.87, "idx": 45.3}, {"rank": 5, "player": "Taina Mair", "pos": "G", "team": "Seattle Storm", "college": "Duke", "home": "Boston, Massachusetts", "miles": 2486.0, "col": 1.3, "climate": 6.1, "city": 1.2, "fan": 0.87, "idx": 41.3}, {"rank": 6, "player": "Olivia Miles", "pos": "G", "team": "Minnesota Lynx", "college": "TCU", "home": "Phoenixville, Pennsylvania", "miles": 961.0, "col": 1.0, "climate": 7.1, "city": 22.6, "fan": 0.85, "idx": 40.7}, {"rank": 7, "player": "Kiki Rice", "pos": "G", "team": "Toronto Tempo", "college": "UCLA", "home": "Bethesda, Maryland", "miles": 343.0, "col": -19.0, "climate": 4.7, "city": 41.2, "fan": 0.76, "idx": 34.8}, {"rank": 8, "player": "Angela Dugalic", "pos": "F", "team": "Washington Mystics", "college": "UCLA", "home": "Des Plaines, Illinois", "miles": 612.0, "col": 5.8, "climate": 5.5, "city": 11.3, "fan": 0.65, "idx": 32.1}, {"rank": 9, "player": "Azzi Fudd", "pos": "G", "team": "Dallas Wings", "college": "UConn", "home": "Arlington, Virginia", "miles": 1195.0, "col": -4.9, "climate": 4.7, "city": 5.5, "fan": 0.74, "idx": 31.0}, {"rank": 10, "player": "Nell Angloma", "pos": "F", "team": "Connecticut Sun", "college": "Montpellier (France)", "home": "Montpellier, France", "miles": 3728.0, "col": 28.7, "climate": 6.4, "city": 0.1, "fan": 0.49, "idx": 30.2}, {"rank": 11, "player": "Lauren Betts", "pos": "C", "team": "Washington Mystics", "college": "UCLA", "home": "Centennial, Colorado", "miles": 1487.0, "col": 2.9, "climate": 2.5, "city": 6.3, "fan": 0.65, "idx": 28.2}, {"rank": 12, "player": "Cotie McMahon", "pos": "F", "team": "Washington Mystics", "college": "Ole Miss", "home": "Centerville, Ohio", "miles": 387.0, "col": 17.7, "climate": 3.2, "city": 28.3, "fan": 0.65, "idx": 27.1}, {"rank": 13, "player": "Raven Johnson", "pos": "G", "team": "Indiana Fever", "college": "South Carolina", "home": "Atlanta, Georgia", "miles": 427.0, "col": -6.2, "climate": 7.0, "city": 1.8, "fan": 0.72, "idx": 26.2}, {"rank": 14, "player": "Gianna Kneepkens", "pos": "G/F", "team": "Connecticut Sun", "college": "UCLA", "home": "Duluth, Minnesota", "miles": 1054.0, "col": 15.4, "climate": 8.1, "city": 0.2, "fan": 0.49, "idx": 23.6}]};
+
+/* ---------- helpers ---------- */
+const fmt = n => n == null ? '—' : Number(n).toLocaleString('en-US');
+const fmt1 = n => n == null ? '—' : Number(n).toFixed(1);
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const signed = n => n == null ? '—' : (n > 0 ? '+' : '') + Number(n).toFixed(1) + '%';
+const cityRatio = n => n == null ? '—' : Number(n) >= 10 ? Math.round(n).toLocaleString('en-US') + '×' : Number(n).toFixed(1) + '×';
+
+/* ---------- top-10 bar charts ---------- */
+function buildBars(key){
+  const host = document.querySelector('[data-bars="'+key+'"]');
+  const rows = RAI[key].slice(0, 10);
+  const max = rows[0].idx;
+  host.innerHTML = rows.map(r => {
+    const lg = key === 'combined' ? r.lg : key.toUpperCase();
+    const cls = lg === 'NBA' ? ' nba' : lg === 'WNBA' ? ' wnba' : '';
+    const sub = (key === 'combined' ? lg + ' · ' : '') + r.team + ' · ' + r.home;
+    return '<div class="an-bar-row">' +
+      '<div class="an-bar-rank">' + r.rank + '</div>' +
+      '<div class="an-bar-name">' + esc(r.player) + '<small>' + esc(sub) + '</small></div>' +
+      '<div class="an-bar-track"><div class="an-bar-fill' + cls + '" data-w="' + (r.idx / max * 100) + '"></div></div>' +
+      '<div class="an-bar-score">' + fmt1(r.idx) + '</div>' +
+    '</div>';
+  }).join('');
+}
+
+/* ---------- tables ---------- */
+const tableState = {};
+function headers(key){
+  const base = [['rank','Rank','num'],['player','Player',''],['pos','Pos','']];
+  if (key === 'combined') base.splice(1, 0, ['lg','League','']);
+  base.push(['team','Team','']);
+  if (key !== 'combined') base.push(['college','College / Club','']);
+  base.push(['home','Hometown',''],
+    ['miles','Miles From Home','num'],
+    ['col','Cost Of Living','num'],
+    ['climate','Climate Shift (°C)','num'],
+    ['city','New City vs Home','num'],
+    ['fan','Fan Pressure','num'],
+    ['idx','Index','num']);
+  return base;
+}
+function renderTable(key){
+  const st = tableState[key];
+  const host = document.querySelector('[data-table="'+key+'"]');
+  let rows = RAI[key].slice();
+  if (st.league && st.league !== 'ALL') rows = rows.filter(r => r.lg === st.league);
+  if (st.q){
+    const q = st.q.toLowerCase();
+    rows = rows.filter(r => [r.player, r.team, r.home, r.college, r.pos, r.lg].filter(Boolean).join(' ').toLowerCase().includes(q));
+  }
+  const dir = st.dir, col = st.col;
+  rows.sort((a,b) => {
+    const av = a[col], bv = b[col];
+    if (typeof av === 'string') return dir * String(av).localeCompare(String(bv));
+    return dir * ((av ?? -1e9) - (bv ?? -1e9));
+  });
+  const hs = headers(key);
+  let html = '<table class="an-table"><thead><tr>' + hs.map(h =>
+    '<th class="' + h[2] + (h[0] === col ? ' sorted' : '') + '" data-col="' + h[0] + '">' + h[1] +
+    '<span class="arrow">' + (h[0] === col ? (dir === 1 ? '▲' : '▼') : '▲') + '</span></th>').join('') + '</tr></thead><tbody>';
+  if (!rows.length){
+    host.innerHTML = html + '</tbody></table><div class="an-empty">No players match that search. Clear it to see the full table.</div>';
+  } else {
+    html += rows.map(r => {
+      let tds = '<td class="rk num">' + r.rank + '</td>';
+      if (key === 'combined') tds += '<td><span class="an-lg-badge ' + r.lg + '">' + r.lg + '</span></td>';
+      tds += '<td class="pl">' + esc(r.player) + '</td><td>' + esc(r.pos) + '</td><td>' + esc(r.team) + '</td>';
+      if (key !== 'combined') tds += '<td>' + esc(r.college || '') + '</td>';
+      tds += '<td>' + esc(r.home) + '</td>' +
+        '<td class="num">' + fmt(Math.round(r.miles)) + '</td>' +
+        '<td class="num">' + signed(r.col) + '</td>' +
+        '<td class="num">' + fmt1(r.climate) + '</td>' +
+        '<td class="num">' + cityRatio(r.city) + '</td>' +
+        '<td class="num">' + (r.fan == null ? '—' : Number(r.fan).toFixed(2)) + '</td>' +
+        '<td class="idx num">' + fmt1(r.idx) + '</td>';
+      return '<tr class="' + (r.rank <= 3 ? 'top3' : '') + '">' + tds + '</tr>';
+    }).join('');
+    host.innerHTML = html + '</tbody></table>';
+  }
+  const note = document.querySelector('[data-count="'+key+'"]');
+  note.textContent = 'Showing ' + rows.length + ' of ' + RAI[key].length + ' players · click any column header to sort · higher index = harder adjustment.';
+  host.querySelectorAll('th').forEach(th => th.addEventListener('click', () => {
+    const c = th.dataset.col;
+    if (st.col === c) st.dir = -st.dir; else { st.col = c; st.dir = ['player','team','home','college','pos','lg'].includes(c) ? 1 : -1; if (c === 'rank') st.dir = 1; }
+    renderTable(key);
+  }));
+}
+['combined','nfl','nba','wnba'].forEach(key => {
+  tableState[key] = { col:'rank', dir:1, q:'', league:'ALL' };
+  buildBars(key);
+  renderTable(key);
+  const search = document.querySelector('[data-search="'+key+'"]');
+  if (search) search.addEventListener('input', e => { tableState[key].q = e.target.value.trim(); renderTable(key); });
+});
+document.querySelectorAll('[data-filter="combined"]').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('[data-filter="combined"]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  tableState.combined.league = btn.dataset.league;
+  renderTable('combined');
+}));
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('.an-tab-btn').forEach(btn => btn.addEventListener('click', () => {
+  const shell = btn.closest('.an-shell');
+  shell.querySelectorAll('.an-tab-btn').forEach(b => b.classList.remove('active'));
+  shell.querySelectorAll('.an-tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(btn.dataset.tab).classList.add('active');
+  if (btn.dataset.tab.endsWith('chart')) animateBarsIn(document.getElementById(btn.dataset.tab));
+}));
+
+/* ---------- flight arc: responsive geometry + jet flight ---------- */
+(function(){
+  const svg = document.getElementById('arcSvg');
+  if (!svg) return;
+  const base = document.getElementById('arcBase'), glow = document.getElementById('arcGlow');
+  const pinA = document.getElementById('pinA'), pinB = document.getElementById('pinB');
+  const plane = document.getElementById('arcPlane'), motion = document.getElementById('planeMotion');
+  const tag = document.getElementById('arcTag'), tagMotion = document.getElementById('tagMotion');
+  const reducedM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let flown = false;
+
+  function layout(){
+    const w = Math.max(220, svg.parentElement.clientWidth || 300);
+    svg.setAttribute('viewBox', '0 0 ' + w + ' 56');
+    const d = 'M 8 46 Q ' + (w / 2) + ' -30 ' + (w - 8) + ' 46';
+    base.setAttribute('d', d);
+    glow.setAttribute('d', d);
+    pinB.setAttribute('transform', 'translate(' + (w - 8) + ' 46)');
+  }
+  function fly(){
+    if (reducedM){ plane.classList.remove('is-flying'); tag.classList.remove('is-flying'); return; }
+    plane.classList.add('is-flying');
+    tag.classList.add('is-flying');
+    try { motion.beginElement(); tagMotion.beginElement(); } catch(e) {}
+    flown = true;
+  }
+  layout();
+  const arcObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting && !flown){ setTimeout(fly, 450); arcObs.disconnect(); } });
+  }, { threshold: 0.4 });
+  arcObs.observe(svg.parentElement);
+  let rT;
+  window.addEventListener('resize', () => {
+    clearTimeout(rT);
+    rT = setTimeout(() => { layout(); if (flown) fly(); }, 180);
+  });
+})();
+
+/* ---------- back to sections ---------- */
+document.querySelectorAll('[data-scroll-menu]').forEach(b => b.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}));
+
+/* ---------- jump nav ---------- */
+const links = document.querySelectorAll('.an-jump-link');
+links.forEach(l => l.addEventListener('click', () => {
+  const el = document.getElementById(l.dataset.jump);
+  const y = el.getBoundingClientRect().top + window.scrollY - 56;
+  window.scrollTo({ top: y, behavior: 'smooth' });
+}));
+const secIds = ['sec-overview','sec-combined','sec-nfl','sec-nba','sec-wnba','sec-method'];
+const navObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting){
+      links.forEach(l => l.classList.toggle('is-active', l.dataset.jump === e.target.id));
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+secIds.forEach(id => navObs.observe(document.getElementById(id)));
+
+/* ---------- reveal + bar/weight animation ---------- */
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function animateBarsIn(scope){
+  (scope || document).querySelectorAll('.an-bar-fill').forEach((f,i) => {
+    setTimeout(() => { f.style.width = f.dataset.w + '%'; }, reduced ? 0 : i * 60);
+  });
+}
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('is-visible');
+    e.target.querySelectorAll('.an-bar-fill').forEach((f,i) => setTimeout(() => { f.style.width = f.dataset.w + '%'; }, reduced ? 0 : i * 60));
+    e.target.querySelectorAll('.an-weight-bar i').forEach(i2 => { i2.style.width = (i2.dataset.w / 20 * 100) + '%'; });
+    revealObs.unobserve(e.target);
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.an-reveal, .an-shell').forEach(el => revealObs.observe(el));
+
+/* ---------- count-up ---------- */
+function countUp(el){
+  const target = +el.dataset.target;
+  if (reduced){ el.textContent = el.dataset.comma ? target.toLocaleString('en-US') : target; return; }
+  const dur = 1600, t0 = performance.now();
+  function tick(t){
+    const p = Math.min(1, (t - t0) / dur);
+    const v = Math.round(target * (1 - Math.pow(1 - p, 3)));
+    el.textContent = el.dataset.comma ? v.toLocaleString('en-US') : v;
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const cObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting){ countUp(e.target); cObs.unobserve(e.target); } });
+}, { threshold: 0.4 });
+document.querySelectorAll('.js-countup').forEach(el => cObs.observe(el));
+</script>
+</body>
+</html>
