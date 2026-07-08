@@ -827,16 +827,36 @@ document.querySelectorAll('.an-tab-btn').forEach(btn => btn.addEventListener('cl
   });
 })();
 
+/* ---------- iframe bridge: jump + auto-height ---------- */
+const inFrame = (() => { try { return window.parent !== window; } catch(e){ return true; } })();
+function anJump(el){
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (inFrame){
+    try {
+      const y = el.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || 0);
+      window.parent.postMessage({ an_jump: y }, '*');
+    } catch(e) {}
+  }
+}
+function anPostHeight(){
+  if (!inFrame) return;
+  try { window.parent.postMessage({ an_height: document.documentElement.scrollHeight }, '*'); } catch(e) {}
+}
+window.addEventListener('load', anPostHeight);
+if (window.ResizeObserver){
+  let hT;
+  new ResizeObserver(() => { clearTimeout(hT); hT = setTimeout(anPostHeight, 200); }).observe(document.body);
+}
+
 /* ---------- back to sections ---------- */
 document.querySelectorAll('[data-scroll-menu]').forEach(b => b.addEventListener('click', () => {
-  document.querySelector('.an-jump-nav').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  anJump(document.querySelector('.an-jump-nav'));
 }));
 
 /* ---------- jump nav ---------- */
 const links = document.querySelectorAll('.an-jump-link');
 links.forEach(l => l.addEventListener('click', () => {
-  const el = document.getElementById(l.dataset.jump);
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  anJump(document.getElementById(l.dataset.jump));
 }));
 const secIds = ['sec-overview','sec-combined','sec-nfl','sec-nba','sec-wnba','sec-method'];
 const navObs = new IntersectionObserver(entries => {
