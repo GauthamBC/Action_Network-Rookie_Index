@@ -31,9 +31,9 @@
 }
 html,body{margin:0;padding:0;background:var(--an-bg);scroll-behavior:smooth;}
 html{scrollbar-width:thin;scrollbar-color:var(--an-green) #e9f4f1;}
-html::-webkit-scrollbar{width:12px;}
+html::-webkit-scrollbar{width:7px;height:7px;}
 html::-webkit-scrollbar-track{background:#e9f4f1;}
-html::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--an-green),var(--an-green-dark));border:3px solid #e9f4f1;border-radius:999px;}
+html::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--an-green),var(--an-green-dark));border:1px solid #e9f4f1;border-radius:999px;}
 *,*::before,*::after{box-sizing:border-box;}
 body{font-family:var(--an-serif);color:var(--an-text);font-size:17px;line-height:1.65;}
 h1,h2,h3,h4,.an-display{font-family:var(--an-display);}
@@ -68,7 +68,8 @@ h1,h2,h3,h4,.an-display{font-family:var(--an-display);}
 .an-flight-arc{flex:1;min-width:160px;height:56px;position:relative;}
 .an-flight-arc svg{width:100%;height:100%;overflow:visible;}
 .an-arc-path{fill:none;stroke:rgba(255,255,255,.2);stroke-width:2;stroke-dasharray:5 7;}
-.an-arc-glow{fill:none;stroke:var(--an-green-bright);stroke-width:2.6;stroke-dasharray:5 7;stroke-dashoffset:1000;animation:an-dash 2.6s ease forwards .5s;}
+.an-arc-glow{fill:none;stroke:var(--an-green-bright);stroke-width:2.6;stroke-dasharray:5 7;stroke-dashoffset:1000;}
+.an-arc-glow.is-drawing{animation:an-dash 2.6s ease forwards;}
 @keyframes an-dash{to{stroke-dashoffset:0;}}
 .an-arc-pin{fill:var(--an-green-bright);fill-rule:evenodd;filter:drop-shadow(0 2px 3px rgba(0,0,0,.45));}
 .an-arc-plane{opacity:0;transition:opacity .3s ease;}
@@ -119,7 +120,7 @@ h1,h2,h3,h4,.an-display{font-family:var(--an-display);}
 .an-reveal.is-visible{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion:reduce){
   .an-reveal{opacity:1;transform:none;transition:none;}
-  .an-arc-glow,.an-bar-fill{animation:none !important;transition:none !important;}
+  .an-arc-glow,.an-arc-glow.is-drawing,.an-bar-fill{animation:none !important;transition:none !important;}
   .an-arc-glow{stroke-dashoffset:0 !important;}
   html{scroll-behavior:auto;}
 }
@@ -808,6 +809,7 @@ document.querySelectorAll('.an-tab-btn').forEach(btn => btn.addEventListener('cl
   }
   function fly(){
     if (reducedM){ plane.classList.remove('is-flying'); tag.classList.remove('is-flying'); return; }
+    glow.classList.add('is-drawing');
     plane.classList.add('is-flying');
     tag.classList.add('is-flying');
     try { motion.beginElement(); tagMotion.beginElement(); } catch(e) {}
