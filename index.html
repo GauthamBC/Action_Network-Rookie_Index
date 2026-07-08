@@ -125,19 +125,20 @@ h1,h2,h3,h4,.an-display{font-family:var(--an-display);}
 }
 
 /* ============ KEY FINDINGS ============ */
-.an-kf-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px;}
-.an-kf-card{position:relative;background:#fff;border:1px solid var(--an-border);border-top:6px solid var(--an-green);padding:24px 22px 60px;box-shadow:0 12px 28px rgba(16,24,32,.055);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;overflow:hidden;}
+.an-kf-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px;}
+.an-kf-card{position:relative;background:#fff;border:1px solid var(--an-border);border-left:6px solid var(--an-green);border-top:1px solid var(--an-border);display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:22px;align-items:center;padding:22px 26px;box-shadow:0 12px 28px rgba(16,24,32,.055);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;overflow:hidden;}
 .an-kf-card::after{content:"";position:absolute;top:-38px;right:-38px;width:110px;height:110px;background:rgba(0,182,122,.09);transform:rotate(45deg);pointer-events:none;}
-.an-kf-card:hover{transform:translateY(-4px);box-shadow:var(--an-shadow-strong);border-color:rgba(0,182,122,.4);}
-.an-kf-card.is-featured{background:linear-gradient(135deg, rgba(0,224,154,.14), transparent 46%), linear-gradient(140deg,#0c1a1c 0%, var(--an-navy-2) 60%, var(--an-navy) 100%);color:#fff;border-color:rgba(0,224,154,.35);}
+.an-kf-card:hover{transform:translateX(6px);box-shadow:var(--an-shadow-strong);border-color:rgba(0,182,122,.4);}
+.an-kf-card.is-featured{border-left-color:var(--an-green-bright);background:linear-gradient(135deg, rgba(0,224,154,.14), transparent 46%), linear-gradient(140deg,#0c1a1c 0%, var(--an-navy-2) 60%, var(--an-navy) 100%);color:#fff;border-color:rgba(0,224,154,.35);}
 .an-kf-card.is-featured p{color:rgba(255,255,255,.85);}
 .an-kf-card.is-featured h4{color:#fff;}
 .an-kf-card.is-featured strong{color:var(--an-green-bright);}
-.an-kf-rank{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;margin-bottom:14px;background:var(--an-green-soft);border:1px solid rgba(0,182,122,.3);color:var(--an-green-dark);font-family:var(--an-display);font-weight:900;font-size:19px;}
+.an-kf-rank{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:var(--an-green-soft);border:1px solid rgba(0,182,122,.3);color:var(--an-green-dark);font-family:var(--an-display);font-weight:900;font-size:19px;}
 .an-kf-card.is-featured .an-kf-rank{background:rgba(0,224,154,.14);border-color:rgba(0,224,154,.4);color:var(--an-green-bright);}
-.an-kf-card h4{position:relative;z-index:1;margin:0 0 10px;font-weight:800;font-size:clamp(21px,2vw,25px);line-height:1.06;text-transform:uppercase;letter-spacing:.01em;color:var(--an-navy);}
+.an-kf-body{position:relative;z-index:1;min-width:0;}
+.an-kf-card h4{position:relative;z-index:1;margin:0 0 8px;font-weight:800;font-size:clamp(21px,2vw,26px);line-height:1.06;text-transform:uppercase;letter-spacing:.01em;color:var(--an-navy);}
 .an-kf-card p{position:relative;z-index:1;margin:0;font-size:15.5px;line-height:1.62;}
-.an-kf-stat{position:absolute;left:22px;bottom:18px;z-index:1;font-family:var(--an-display);font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--an-green-dark);border-bottom:3px solid var(--an-green);padding-bottom:2px;}
+.an-kf-stat{position:relative;z-index:1;justify-self:end;white-space:nowrap;font-family:var(--an-display);font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--an-green-dark);border-bottom:3px solid var(--an-green);padding-bottom:2px;}
 .an-kf-card.is-featured .an-kf-stat{color:var(--an-green-bright);border-color:var(--an-green-bright);}
 
 /* ============ QUOTE ============ */
@@ -251,12 +252,12 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
 
 /* ============ RESPONSIVE ============ */
 @media (max-width:960px){
-  .an-kf-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
   .an-hero-stats{grid-template-columns:repeat(2,minmax(0,1fr));}
   .an-steps,.an-cover,.an-bands{grid-template-columns:1fr;}
 }
 @media (max-width:640px){
-  .an-kf-grid{grid-template-columns:1fr;}
+  .an-kf-card{grid-template-columns:44px minmax(0,1fr);}
+  .an-kf-stat{grid-column:2;justify-self:start;}
   .an-bar-row{grid-template-columns:26px minmax(90px,140px) 1fr 48px;gap:8px;}
   .an-bar-name{font-size:14px;}
   .an-bar-score{font-size:16px;}
@@ -366,38 +367,50 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
       <div class="an-kf-grid">
         <div class="an-kf-card is-featured an-reveal">
           <div class="an-kf-rank">1</div>
-          <h4>Mauigoa&#8217;s Move Is In A League Of Its Own</h4>
-          <p><strong>Francis Mauigoa (NY Giants) is the hardest adjustment in the entire series</strong>, topping both the NFL table (83.6) and the combined pool (69.5). Ili&#8217;ili, American Samoa to New York means 7,206 miles from home, a 19.2&deg;C winter shock and a city 2,700&times; bigger.</p>
+          <div class="an-kf-body">
+            <h4>Mauigoa&#8217;s Move Is In A League Of Its Own</h4>
+            <p><strong>Francis Mauigoa (NY Giants) is the hardest adjustment in the entire series</strong>, topping both the NFL table (83.6) and the combined pool (69.5). Ili&#8217;ili, American Samoa to New York means 7,206 miles from home, a 19.2&deg;C winter shock and a city 2,700&times; bigger.</p>
+          </div>
           <span class="an-kf-stat">NFL Index 83.6 / 100</span>
         </div>
         <div class="an-kf-card an-reveal">
           <div class="an-kf-rank">2</div>
-          <h4>Okot Makes The Longest Trip In Pro Sports</h4>
-          <p><strong>Madina Okot (Atlanta Dream) tops the WNBA at 73.2</strong> with the two most extreme raw numbers anywhere in the index: 7,845 miles from Mumias, Kenya &mdash; the longest move of all 109 rookies &mdash; and a <strong>+166% cost-of-living jump</strong>.</p>
+          <div class="an-kf-body">
+            <h4>Okot Makes The Longest Trip In Pro Sports</h4>
+            <p><strong>Madina Okot (Atlanta Dream) tops the WNBA at 73.2</strong> with the two most extreme raw numbers anywhere in the index: 7,845 miles from Mumias, Kenya &mdash; the longest move of all 109 rookies &mdash; and a <strong>+166% cost-of-living jump</strong>.</p>
+          </div>
           <span class="an-kf-stat">WNBA Index 73.2 / 100</span>
         </div>
         <div class="an-kf-card an-reveal">
           <div class="an-kf-rank">3</div>
-          <h4>The Top Of The Index Speaks With An Accent</h4>
-          <p><strong>All six of the hardest combined adjustments belong to players who grew up outside the 50 states</strong>: American Samoa, Kenya, Canada, Spain (twice) and Germany. The global pipeline is real &mdash; and it comes with the steepest life change.</p>
+          <div class="an-kf-body">
+            <h4>The Top Of The Index Speaks With An Accent</h4>
+            <p><strong>All six of the hardest combined adjustments belong to players who grew up outside the 50 states</strong>: American Samoa, Kenya, Canada, Spain (twice) and Germany. The global pipeline is real &mdash; and it comes with the steepest life change.</p>
+          </div>
           <span class="an-kf-stat">Combined Top 6: 0 Mainland-US Hometowns</span>
         </div>
         <div class="an-kf-card an-reveal">
           <div class="an-kf-rank">4</div>
-          <h4>De Larrea Leads An International NBA Class</h4>
-          <p><strong>Sergio De Larrea (Dallas Mavericks) tops the NBA table at 65.3</strong> after a 5,130-mile move from Valencia, Spain &mdash; nine points clear of the field &mdash; while Karim Lopez absorbs the series&#8217; biggest price shock inside the top five, Hermosillo to Memphis at +68%.</p>
+          <div class="an-kf-body">
+            <h4>De Larrea Leads An International NBA Class</h4>
+            <p><strong>Sergio De Larrea (Dallas Mavericks) tops the NBA table at 65.3</strong> after a 5,130-mile move from Valencia, Spain &mdash; nine points clear of the field &mdash; while Karim Lopez absorbs the series&#8217; biggest price shock inside the top five, Hermosillo to Memphis at +68%.</p>
+          </div>
           <span class="an-kf-stat">NBA Index 65.3 / 100</span>
         </div>
         <div class="an-kf-card an-reveal">
           <div class="an-kf-rank">5</div>
-          <h4>Seattle Is The WNBA&#8217;s Pressure Cooker</h4>
-          <p><strong>The Seattle Storm placed three rookies in the WNBA top five</strong> &mdash; Awa Fam Thiam (#2), Flau&#8217;jae Johnson (#4) and Taina Mair (#5). One roster, one of the league&#8217;s hottest markets, three of its toughest adjustments.</p>
+          <div class="an-kf-body">
+            <h4>Seattle Is The WNBA&#8217;s Pressure Cooker</h4>
+            <p><strong>The Seattle Storm placed three rookies in the WNBA top five</strong> &mdash; Awa Fam Thiam (#2), Flau&#8217;jae Johnson (#4) and Taina Mair (#5). One roster, one of the league&#8217;s hottest markets, three of its toughest adjustments.</p>
+          </div>
           <span class="an-kf-stat">3 Of The Top 5 Moves</span>
         </div>
         <div class="an-kf-card an-reveal">
           <div class="an-kf-rank">6</div>
-          <h4>The Softest Landings Barely Left Home</h4>
-          <p><strong>Davison Igbinosun posts the lowest score anywhere in the index (11.9 NFL)</strong>, while Cameron Boozer (19.6) and Gianna Kneepkens (23.6) enjoy the gentlest moves in the NBA and WNBA &mdash; familiar weather, familiar prices, manageable spotlight.</p>
+          <div class="an-kf-body">
+            <h4>The Softest Landings Barely Left Home</h4>
+            <p><strong>Davison Igbinosun posts the lowest score anywhere in the index (11.9 NFL)</strong>, while Cameron Boozer (19.6) and Gianna Kneepkens (23.6) enjoy the gentlest moves in the NBA and WNBA &mdash; familiar weather, familiar prices, manageable spotlight.</p>
+          </div>
           <span class="an-kf-stat">Series Low: 11.9 / 100</span>
         </div>
       </div>
