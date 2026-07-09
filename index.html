@@ -1159,6 +1159,12 @@ function setLens(lg, fromInit){
   if (!fromInit && typeof anPostHeight === 'function') setTimeout(anPostHeight, 250);
 }
 document.querySelectorAll('.an-lens-pill').forEach(p => p.addEventListener('click', () => setLens(p.dataset.lens)));
+window.addEventListener('message', e => {
+  const v = e.data && e.data.an_league;
+  if (typeof v !== 'string') return;
+  const lg = { all: 'all', nfl: 'NFL', nba: 'NBA', wnba: 'WNBA' }[v.toLowerCase()];
+  if (lg) setLens(lg);
+});
 (function(){
   try {
     const q = (new URL(window.location.href)).searchParams.get('league');
