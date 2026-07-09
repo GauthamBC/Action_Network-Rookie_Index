@@ -901,11 +901,15 @@ document.querySelectorAll('.an-tab-btn').forEach(btn => btn.addEventListener('cl
 
 /* ---------- iframe bridge: jump + auto-height ---------- */
 const inFrame = (() => { try { return window.parent !== window; } catch(e){ return true; } })();
-function anJump(el){
+function anTargetY(el){
   const nav = document.querySelector('.an-jump-nav');
   const offset = (nav ? nav.offsetHeight : 0) + 14;
   const pageY = window.pageYOffset || document.documentElement.scrollTop || 0;
-  const y = Math.max(0, el.getBoundingClientRect().top + pageY - offset);
+  return Math.max(0, el.getBoundingClientRect().top + pageY - offset);
+}
+function anJump(el){
+  if (!el || el.offsetParent === null && el.getClientRects().length === 0) return;
+  const y = anTargetY(el);
   const scrollsInternally = document.documentElement.scrollHeight > window.innerHeight + 4;
   if (scrollsInternally){
     window.scrollTo({ top: y, behavior: 'smooth' });
@@ -915,6 +919,16 @@ function anJump(el){
   if (inFrame){
     try { window.parent.postMessage({ an_jump: y }, '*'); } catch(e) {}
   }
+  /* corrective pass: long smooth scrolls can settle off-target if layout
+     shifted during travel (font swap, late paint); re-measure and fix */
+  clearTimeout(anJump._t);
+  anJump._t = setTimeout(function(){
+    const y2 = anTargetY(el);
+    const cur = window.pageYOffset || document.documentElement.scrollTop || 0;
+    if (Math.abs(cur - y2) > 12 && document.documentElement.scrollHeight > window.innerHeight + 4){
+      window.scrollTo({ top: y2, behavior: 'auto' });
+    }
+  }, 700);
 }
 function anPostHeight(){
   if (!inFrame) return;
