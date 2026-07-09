@@ -107,14 +107,11 @@ h1,h2,h3,h4,.an-display{font-family:var(--an-display);}
 /* ============ LEAGUE LENS ============ */
 .an-lens-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px clamp(16px,2.4vw,40px);border-bottom:1px solid var(--an-border);background:var(--an-bg2);}
 .an-lens-label{font-family:var(--an-display);font-weight:700;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--an-muted);padding-right:6px;}
-.an-lens-pill{appearance:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--an-border-2);border-radius:999px;padding:6px 15px 6px 9px;font-family:var(--an-display);font-weight:700;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--an-text);transition:all .16s ease;}
-.an-lens-pill .code{display:inline-flex;align-items:center;justify-content:center;min-width:26px;padding:2px 5px;border-radius:999px;font-size:9.5px;font-weight:800;letter-spacing:.08em;color:#fff;background:var(--an-navy);line-height:1.4;}
-.an-lens-pill[data-lens="NFL"] .code{background:var(--an-green-dark);}
-.an-lens-pill[data-lens="NBA"] .code{background:var(--an-nba);}
-.an-lens-pill[data-lens="WNBA"] .code{background:#d97e00;}
+.an-lens-pill{appearance:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--an-border-2);border-radius:999px;padding:7px 16px 7px 12px;font-family:var(--an-display);font-weight:700;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--an-text);transition:all .16s ease;}
+.an-lens-pill .ico{display:inline-flex;width:15px;height:15px;flex:0 0 auto;}
+.an-lens-pill .ico svg{width:100%;height:100%;display:block;}
 .an-lens-pill:hover{border-color:var(--an-green);color:var(--an-green-dark);transform:translateY(-1px);}
-.an-lens-pill.active{background:var(--an-green);border-color:var(--an-green);color:#fff;box-shadow:0 4px 12px rgba(0,182,122,.35);}
-.an-lens-pill.active .code{background:rgba(16,24,32,.35);}
+.an-lens-pill.active{background:var(--an-navy);border-color:var(--an-navy);color:#fff;box-shadow:0 4px 12px rgba(16,24,32,.3);}
 .an-lens-pill:focus-visible{outline:3px solid var(--an-green);outline-offset:2px;}
 .an-lens-note{flex-basis:100%;margin:2px 0 0;font-family:var(--an-serif);font-size:12.5px;line-height:1.4;color:var(--an-muted);}
 
@@ -330,10 +327,10 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
   <nav class="an-jump-nav" aria-label="Culture Shock Index sections">
     <div class="an-lens-bar" role="group" aria-label="Filter the page by league">
       <span class="an-lens-label">League view:</span>
-      <button class="an-lens-pill active" type="button" data-lens="all" aria-pressed="true"><span class="code">ALL</span> All leagues</button>
-      <button class="an-lens-pill" type="button" data-lens="NFL" aria-pressed="false"><span class="code">NFL</span> NFL</button>
-      <button class="an-lens-pill" type="button" data-lens="NBA" aria-pressed="false"><span class="code">NBA</span> NBA</button>
-      <button class="an-lens-pill" type="button" data-lens="WNBA" aria-pressed="false"><span class="code">WNBA</span> WNBA</button>
+      <button class="an-lens-pill active" type="button" data-lens="all" aria-pressed="true"><span class="ico" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="5" cy="10.5" r="3.4" fill="var(--an-green-dark)"/><circle cx="11" cy="10.5" r="3.4" fill="var(--an-nba)"/><circle cx="8" cy="5" r="3.4" fill="#d97e00"/></svg></span>All leagues</button>
+      <button class="an-lens-pill" type="button" data-lens="NFL" aria-pressed="false"><span class="ico" aria-hidden="true"><svg viewBox="0 0 16 16"><ellipse cx="8" cy="8" rx="7" ry="4.4" transform="rotate(-38 8 8)" fill="var(--an-green-dark)"/><path d="M5.4 10.6 L10.6 5.4 M6.6 7.2 l1 1 M7.9 5.9 l1 1 M9.2 4.6 l1 1" stroke="#fff" stroke-width="1" stroke-linecap="round" fill="none"/></svg></span>NFL</button>
+      <button class="an-lens-pill" type="button" data-lens="NBA" aria-pressed="false"><span class="ico" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.6" fill="var(--an-nba)"/><path d="M1.4 8 h13.2 M8 1.4 v13.2 M3.4 3.2 q4.6 4.8 0 9.6 M12.6 3.2 q-4.6 4.8 0 9.6" stroke="rgba(255,255,255,.9)" stroke-width="1" fill="none"/></svg></span>NBA</button>
+      <button class="an-lens-pill" type="button" data-lens="WNBA" aria-pressed="false"><span class="ico" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.6" fill="#d97e00"/><path d="M1.4 8 h13.2 M8 1.4 v13.2 M3.4 3.2 q4.6 4.8 0 9.6 M12.6 3.2 q-4.6 4.8 0 9.6" stroke="rgba(255,255,255,.9)" stroke-width="1" fill="none"/></svg></span>WNBA</button>
       <span class="an-lens-note">Showing all leagues by default. Pick one for its dedicated league report.</span>
     </div>
     <div class="an-jump-track">
