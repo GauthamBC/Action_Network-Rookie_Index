@@ -103,8 +103,22 @@ h1,h2,h3,h4,.an-display{font-family:var(--an-display);}
 .an-jump-link.is-active{color:var(--an-green-dark);border-bottom-color:var(--an-green);}
 .an-jump-link:focus-visible,.an-btn:focus-visible,.an-tab-btn:focus-visible,.an-chip:focus-visible{outline:3px solid var(--an-green);outline-offset:2px;}
 
+/* ============ LEAGUE LENS ============ */
+.an-lens-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px clamp(16px,2.4vw,40px);border-bottom:1px solid var(--an-border);background:var(--an-bg2);}
+.an-lens-label{font-family:var(--an-display);font-weight:700;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--an-muted);padding-right:6px;}
+.an-lens-pill{appearance:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--an-border-2);border-radius:999px;padding:6px 15px 6px 9px;font-family:var(--an-display);font-weight:700;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--an-text);transition:all .16s ease;}
+.an-lens-pill .code{display:inline-flex;align-items:center;justify-content:center;min-width:26px;padding:2px 5px;border-radius:999px;font-size:9.5px;font-weight:800;letter-spacing:.08em;color:#fff;background:var(--an-navy);line-height:1.4;}
+.an-lens-pill[data-lens="NFL"] .code{background:var(--an-green-dark);}
+.an-lens-pill[data-lens="NBA"] .code{background:var(--an-nba);}
+.an-lens-pill[data-lens="WNBA"] .code{background:#d97e00;}
+.an-lens-pill:hover{border-color:var(--an-green);color:var(--an-green-dark);transform:translateY(-1px);}
+.an-lens-pill.active{background:var(--an-green);border-color:var(--an-green);color:#fff;box-shadow:0 4px 12px rgba(0,182,122,.35);}
+.an-lens-pill.active .code{background:rgba(16,24,32,.35);}
+.an-lens-pill:focus-visible{outline:3px solid var(--an-green);outline-offset:2px;}
+.an-lens-note{flex-basis:100%;margin:2px 0 0;font-family:var(--an-serif);font-size:12.5px;line-height:1.4;color:var(--an-muted);}
+
 /* ============ SECTIONS ============ */
-.an-section{padding:clamp(48px,6vw,84px) 0;scroll-margin-top:76px;}
+.an-section{padding:clamp(48px,6vw,84px) 0;scroll-margin-top:120px;}
 .an-section.alt{background:var(--an-bg2);border-top:1px solid var(--an-border);border-bottom:1px solid var(--an-border);}
 .an-sec-head{display:flex;align-items:flex-end;gap:18px;margin-bottom:10px;}
 .an-sec-num{font-family:var(--an-display);font-weight:900;font-size:clamp(15px,1.4vw,18px);letter-spacing:.22em;color:var(--an-green-dark);padding:5px 11px;border:2px solid var(--an-green);line-height:1;}
@@ -234,6 +248,47 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
 .an-callout{margin-top:26px;background:var(--an-green-soft);border:1px solid rgba(0,182,122,.3);border-left:6px solid var(--an-green);padding:18px 22px;font-size:15px;line-height:1.65;}
 .an-callout b{font-family:var(--an-display);letter-spacing:.14em;text-transform:uppercase;color:var(--an-green-dark);margin-right:6px;}
 
+/* ============ LEAGUE DEEP DIVE ============ */
+.an-deepdive{--dd:var(--an-green-dark);margin-top:30px;background:#fff;border:1px solid var(--an-border);box-shadow:var(--an-shadow);}
+.an-deepdive[data-deepdive="nba"]{--dd:var(--an-nba);}
+.an-deepdive[data-deepdive="wnba"]{--dd:#d97e00;}
+.an-dd-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;padding:18px 22px;background:var(--an-navy);border-top:6px solid var(--dd);}
+.an-dd-head h3{margin:0;color:#fff;font-weight:900;font-size:clamp(21px,2.2vw,27px);text-transform:uppercase;letter-spacing:.02em;}
+.an-dd-head h3 .accent{color:var(--an-green-bright);}
+.an-dd-head .sub{font-family:var(--an-serif);font-size:13.5px;color:rgba(255,255,255,.65);}
+.an-dd-body{padding:clamp(18px,2.4vw,28px);}
+.an-dd-kicker{font-family:var(--an-display);font-weight:800;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--dd);margin:26px 0 12px;display:flex;align-items:center;gap:10px;}
+.an-dd-kicker::after{content:"";flex:1;height:1px;background:var(--an-border);}
+.an-dd-kicker:first-child{margin-top:0;}
+.an-dd-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--an-border);border:1px solid var(--an-border);}
+.an-dd-stat{background:var(--an-bg2);padding:16px 18px;}
+.an-dd-stat b{display:block;font-family:var(--an-display);font-weight:900;font-size:clamp(24px,2.4vw,34px);line-height:1;color:var(--an-navy);}
+.an-dd-stat b i{font-style:normal;color:var(--dd);}
+.an-dd-stat span{display:block;margin-top:6px;font-family:var(--an-display);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--an-muted);}
+.an-dd-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+.an-dd-card{background:#fff;border:1px solid var(--an-border);border-left:5px solid var(--dd);padding:16px 18px;}
+.an-dd-card h5{margin:0 0 10px;font-family:var(--an-display);font-weight:800;font-size:15.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--an-navy);}
+.an-dd-row{display:flex;align-items:baseline;gap:9px;padding:6px 0;border-top:1px dashed var(--an-border-2);font-size:13.5px;}
+.an-dd-row:first-of-type{border-top:none;}
+.an-dd-row .r{flex:0 0 16px;font-family:var(--an-display);font-weight:900;color:var(--dd);}
+.an-dd-row .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600;color:var(--an-navy);}
+.an-dd-row .nm small{display:block;font-weight:400;font-size:11.5px;color:var(--an-muted);}
+.an-dd-row .v{margin-left:auto;font-family:var(--an-display);font-weight:900;font-size:15px;color:var(--an-navy);white-space:nowrap;}
+.an-dd-bandbar{display:flex;height:30px;border:1px solid var(--an-border);overflow:hidden;}
+.an-dd-bandbar i{display:flex;align-items:center;justify-content:center;font-style:normal;font-family:var(--an-display);font-weight:800;font-size:13px;color:#fff;min-width:0;transition:width .8s cubic-bezier(.2,.7,.2,1);}
+.an-dd-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:12.5px;color:var(--an-muted);}
+.an-dd-legend b{display:inline-block;width:10px;height:10px;margin-right:5px;}
+.an-dd-teams{border:1px solid var(--an-border);}
+.an-dd-team{display:grid;grid-template-columns:minmax(120px,1.4fr) 70px 90px minmax(120px,1.6fr);gap:10px;align-items:center;padding:9px 14px;border-top:1px solid var(--an-border);font-size:13.5px;}
+.an-dd-team:first-child{border-top:none;background:var(--an-navy);color:#fff;font-family:var(--an-display);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;}
+.an-dd-team:nth-child(even){background:var(--an-bg2);}
+.an-dd-team .tn{font-weight:600;color:var(--an-navy);}
+.an-dd-team:first-child .tn{color:#fff;font-weight:700;}
+.an-dd-team .av{font-family:var(--an-display);font-weight:900;color:var(--dd);font-size:15px;}
+.an-dd-team .tp small{color:var(--an-muted);}
+@media (max-width:960px){.an-dd-stats{grid-template-columns:repeat(2,minmax(0,1fr));}.an-dd-grid{grid-template-columns:1fr;}}
+@media (max-width:640px){.an-dd-team{grid-template-columns:1fr 50px 70px;} .an-dd-team .tp{display:none;}}
+
 /* ============ SECTION SEPARATOR ============ */
 .an-sep{display:flex;align-items:center;gap:18px;padding:clamp(10px,1.6vw,20px) clamp(16px,2.4vw,40px);background:var(--an-bg);}
 .an-section.alt + .an-sep, .an-sep.on-alt{background:var(--an-bg2);}
@@ -272,6 +327,14 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
 
   <!-- ============ JUMP NAV ============ -->
   <nav class="an-jump-nav" aria-label="Culture Shock Index sections">
+    <div class="an-lens-bar" role="group" aria-label="Filter the page by league">
+      <span class="an-lens-label">League view:</span>
+      <button class="an-lens-pill active" type="button" data-lens="all" aria-pressed="true"><span class="code">ALL</span> All leagues</button>
+      <button class="an-lens-pill" type="button" data-lens="NFL" aria-pressed="false"><span class="code">NFL</span> NFL</button>
+      <button class="an-lens-pill" type="button" data-lens="NBA" aria-pressed="false"><span class="code">NBA</span> NBA</button>
+      <button class="an-lens-pill" type="button" data-lens="WNBA" aria-pressed="false"><span class="code">WNBA</span> WNBA</button>
+      <span class="an-lens-note">Showing all leagues by default. Pick one for its dedicated league report.</span>
+    </div>
     <div class="an-jump-track">
       <span class="an-jump-label">Sections</span>
       <button class="an-jump-link is-active" type="button" data-jump="sec-overview">Key Findings</button>
@@ -279,6 +342,7 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
       <button class="an-jump-link" type="button" data-jump="sec-nfl">NFL</button>
       <button class="an-jump-link" type="button" data-jump="sec-nba">NBA</button>
       <button class="an-jump-link" type="button" data-jump="sec-wnba">WNBA</button>
+      <button class="an-jump-link" type="button" data-jump="dd-nfl" data-dd-link hidden>Deep Dive</button>
       <button class="an-jump-link" type="button" data-jump="sec-method">Methodology</button>
     </div>
   </nav>
@@ -299,11 +363,11 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
           <div class="an-kicker">The 2026 Rookie Culture Shock Index &middot; NFL &middot; NBA &middot; WNBA</div>
         </div>
 
-        <div class="an-flight" aria-label="Toughest move: Francis Mauigoa, Ili'ili American Samoa to New York, 7,206 miles">
-          <p class="an-flight-label">The Toughest Move In Pro Sports</p>
+        <div class="an-flight" id="flightPanel" aria-label="Toughest move: Francis Mauigoa, Ili'ili American Samoa to New York, 7,206 miles">
+          <p class="an-flight-label" id="flightLabel">The Toughest Move In Pro Sports</p>
           <p style="margin:0 0 14px;font-family:var(--an-serif);font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.75);">A measure of how drastically a rookie&#8217;s everyday life changes: distance from home, cost of living, climate, city size, and spotlight.</p>
           <div class="an-flight-route">
-            <div class="an-flight-city">Ili&#8217;ili<small>American Samoa &middot; pop. 3,073</small></div>
+            <div class="an-flight-city" id="flightFrom">Ili&#8217;ili<small>American Samoa &middot; pop. 3,073</small></div>
             <div class="an-flight-arc" aria-hidden="true">
               <svg id="arcSvg" viewBox="0 0 300 56">
                 <path id="arcBase" class="an-arc-path" d="M 8 46 Q 150 -30 292 46"></path>
@@ -324,12 +388,12 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
                 </g>
               </svg>
             </div>
-            <div class="an-flight-city">New York<small>Giants &middot; Francis Mauigoa, G</small></div>
-            <div class="an-flight-miles"><span class="js-countup" data-target="7206" data-comma="1">0</span>&nbsp;mi<span class="sub">Home to stadium &middot; 2,700&times; bigger city &middot; 19.2&deg;C colder winters</span></div>
+            <div class="an-flight-city" id="flightTo">New York<small>Giants &middot; Francis Mauigoa, G</small></div>
+            <div class="an-flight-miles" id="flightMiles"><span class="js-countup" data-target="7206" data-comma="1">0</span>&nbsp;mi<span class="sub">Home to stadium &middot; 2,700&times; bigger city &middot; 19.2&deg;C colder winters</span></div>
           </div>
         </div>
 
-        <div class="an-hero-stats">
+        <div class="an-hero-stats" id="heroStats">
           <div class="an-hero-stat">
             <div class="an-stat-body">
               <b><span class="js-countup" data-target="109">0</span></b>
@@ -362,10 +426,11 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
     <div class="an-wrap" style="padding-top:clamp(48px,6vw,84px);">
       <div class="an-sec-head an-reveal"><h2>Key <span class="accent">Findings</span></h2></div>
       <div class="an-rule an-reveal"></div>
+      <div id="global-findings">
       <p class="an-copy an-reveal">Six numbers that tell the story of the 2026 rookie class, before a single snap, tip-off or opening night.</p>
 
       <div class="an-kf-grid">
-        <div class="an-kf-card is-featured an-reveal">
+        <div class="an-kf-card is-featured an-reveal" data-lg="nfl">
           <div class="an-kf-rank">1</div>
           <div class="an-kf-body">
             <h4>Mauigoa&#8217;s Move Has No Equal In Any League</h4>
@@ -373,7 +438,7 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
           </div>
           <span class="an-kf-stat">NFL Index 83.6 / 100</span>
         </div>
-        <div class="an-kf-card an-reveal">
+        <div class="an-kf-card an-reveal" data-lg="wnba">
           <div class="an-kf-rank">2</div>
           <div class="an-kf-body">
             <h4>Okot Makes The Longest Trip In Pro Sports</h4>
@@ -381,7 +446,7 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
           </div>
           <span class="an-kf-stat">WNBA Index 73.2 / 100</span>
         </div>
-        <div class="an-kf-card an-reveal">
+        <div class="an-kf-card an-reveal" data-lg="all">
           <div class="an-kf-rank">3</div>
           <div class="an-kf-body">
             <h4>The Global Pipeline Comes At A Price</h4>
@@ -389,7 +454,7 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
           </div>
           <span class="an-kf-stat">Combined Top 6: 0 Mainland-US Hometowns</span>
         </div>
-        <div class="an-kf-card an-reveal">
+        <div class="an-kf-card an-reveal" data-lg="nba">
           <div class="an-kf-rank">4</div>
           <div class="an-kf-body">
             <h4>De Larrea Leads An International NBA Class</h4>
@@ -397,7 +462,7 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
           </div>
           <span class="an-kf-stat">NBA Index 65.3 / 100</span>
         </div>
-        <div class="an-kf-card an-reveal">
+        <div class="an-kf-card an-reveal" data-lg="wnba">
           <div class="an-kf-rank">5</div>
           <div class="an-kf-body">
             <h4>Seattle Is The WNBA&#8217;s Pressure Cooker</h4>
@@ -405,7 +470,7 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
           </div>
           <span class="an-kf-stat">3 Of The Top 5 Moves</span>
         </div>
-        <div class="an-kf-card an-reveal">
+        <div class="an-kf-card an-reveal" data-lg="all">
           <div class="an-kf-rank">6</div>
           <div class="an-kf-body">
             <h4>The Softest Landings Barely Left Home</h4>
@@ -421,6 +486,8 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
           <cite>Action Network Spokesperson</cite>
         </div>
       </div>
+      </div>
+      <div id="league-findings" hidden></div>
     </div>
   </section>
 
@@ -493,6 +560,7 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
           <p class="an-count-note" data-count="nfl"></p>
         </div>
       </div>
+      <div class="an-deepdive" id="dd-nfl" data-deepdive="nfl" hidden></div>
     </div>
   </section>
 
@@ -527,6 +595,7 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
           <p class="an-count-note" data-count="nba"></p>
         </div>
       </div>
+      <div class="an-deepdive" id="dd-nba" data-deepdive="nba" hidden></div>
     </div>
   </section>
 
@@ -561,6 +630,7 @@ table.an-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14.
           <p class="an-count-note" data-count="wnba"></p>
         </div>
       </div>
+      <div class="an-deepdive" id="dd-wnba" data-deepdive="wnba" hidden></div>
     </div>
   </section>
 
@@ -825,6 +895,7 @@ document.querySelectorAll('.an-tab-btn').forEach(btn => btn.addEventListener('cl
     clearTimeout(rT);
     rT = setTimeout(() => { layout(); if (flown) fly(); }, 180);
   });
+  window.__anFlightReplay = function(){ layout(); fly(); };
 })();
 
 /* ---------- iframe bridge: jump + auto-height ---------- */
@@ -853,6 +924,247 @@ if (window.ResizeObserver){
   let hT;
   new ResizeObserver(() => { clearTimeout(hT); hT = setTimeout(anPostHeight, 200); }).observe(document.body);
 }
+
+/* ---------- league deep dive ---------- */
+const DD_LEAGUE_NAMES = { nfl: 'NFL', nba: 'NBA', wnba: 'WNBA' };
+const ddBuilt = {};
+function ddRows(rows, valFn){
+  return rows.map((r, i) =>
+    '<div class="an-dd-row"><span class="r">' + (i + 1) + '</span>' +
+    '<span class="nm">' + esc(r.player) + '<small>' + esc(r.team) + ' &middot; ' + esc(r.home) + '</small></span>' +
+    '<span class="v">' + valFn(r) + '</span></div>').join('');
+}
+function renderDeepDive(key){
+  if (ddBuilt[key]) return;
+  const host = document.querySelector('[data-deepdive="' + key + '"]');
+  if (!host) return;
+  const d = RAI[key], L = DD_LEAGUE_NAMES[key];
+  const avg = a => a.reduce((s, x) => s + x, 0) / a.length;
+  const by = (k, dir) => d.slice().sort((a, b) => dir * (b[k] - a[k]));
+  const hardest = d[0], softest = d[d.length - 1];
+  const bands = [
+    ['Extreme 60+', d.filter(r => r.idx >= 60).length, '#c23a3a'],
+    ['Substantial 35\u201360', d.filter(r => r.idx >= 35 && r.idx < 60).length, '#d97e00'],
+    ['Moderate 25\u201335', d.filter(r => r.idx >= 25 && r.idx < 35).length, 'var(--an-nba)'],
+    ['Soft Landing <25', d.filter(r => r.idx < 25).length, 'var(--an-green)']
+  ];
+  const teams = {};
+  d.forEach(r => { (teams[r.team] = teams[r.team] || []).push(r); });
+  const teamRows = Object.entries(teams)
+    .map(([t, rs]) => ({ t, n: rs.length, avg: avg(rs.map(r => r.idx)), top: rs.reduce((a, b) => a.idx > b.idx ? a : b) }))
+    .sort((a, b) => b.avg - a.avg).slice(0, 6);
+
+  host.innerHTML =
+    '<div class="an-dd-head"><h3>' + L + ' <span class="accent">Deep Dive</span></h3>' +
+    '<span class="sub">Factor leaders, score spread and the toughest team environments &middot; ' + d.length + ' rookies</span></div>' +
+    '<div class="an-dd-body">' +
+
+    '<div class="an-dd-kicker">League Snapshot</div>' +
+    '<div class="an-dd-stats">' +
+      '<div class="an-dd-stat"><b><i>' + fmt1(hardest.idx) + '</i></b><span>Hardest: ' + esc(hardest.player) + '</span></div>' +
+      '<div class="an-dd-stat"><b>' + fmt1(softest.idx) + '</b><span>Softest: ' + esc(softest.player) + '</span></div>' +
+      '<div class="an-dd-stat"><b>' + fmt(Math.round(avg(d.map(r => r.miles)))) + '<i>&nbsp;mi</i></b><span>Average move from home</span></div>' +
+      '<div class="an-dd-stat"><b>' + fmt1(avg(d.map(r => r.idx))) + '</b><span>Average index score</span></div>' +
+    '</div>' +
+
+    '<div class="an-dd-kicker">Factor Leaders</div>' +
+    '<div class="an-dd-grid">' +
+      '<div class="an-dd-card"><h5>Longest Moves</h5>' + ddRows(by('miles', 1).slice(0, 3), r => fmt(Math.round(r.miles)) + ' mi') + '</div>' +
+      '<div class="an-dd-card"><h5>Biggest Price Jumps</h5>' + ddRows(by('col', 1).slice(0, 3), r => signed(r.col)) + '</div>' +
+      '<div class="an-dd-card"><h5>Biggest Climate Shifts</h5>' + ddRows(by('climate', 1).slice(0, 3), r => fmt1(r.climate) + '\u00b0C') + '</div>' +
+      '<div class="an-dd-card"><h5>Biggest City Jumps</h5>' + ddRows(by('city', 1).slice(0, 3), r => cityRatio(r.city)) + '</div>' +
+      '<div class="an-dd-card"><h5>Heaviest Spotlight</h5>' + ddRows(by('fan', 1).slice(0, 3), r => Number(r.fan).toFixed(2)) + '</div>' +
+      '<div class="an-dd-card"><h5>Softest Landings</h5>' + ddRows(by('idx', -1).slice(0, 3), r => fmt1(r.idx)) + '</div>' +
+    '</div>' +
+
+    '<div class="an-dd-kicker">Score Spread</div>' +
+    '<div class="an-dd-bandbar">' + bands.filter(b => b[1] > 0).map(b =>
+      '<i style="width:' + (b[1] / d.length * 100) + '%;background:' + b[2] + '" title="' + b[0] + ': ' + b[1] + '">' + b[1] + '</i>').join('') + '</div>' +
+    '<div class="an-dd-legend">' + bands.map(b => '<span><b style="background:' + b[2] + '"></b>' + b[0] + ' (' + b[1] + ')</span>').join('') + '</div>' +
+
+    '<div class="an-dd-kicker">Toughest Team Environments</div>' +
+    '<div class="an-dd-teams">' +
+      '<div class="an-dd-team"><span class="tn">Team</span><span>Rookies</span><span>Avg Index</span><span>Toughest Move</span></div>' +
+      teamRows.map(t =>
+        '<div class="an-dd-team"><span class="tn">' + esc(t.t) + '</span><span>' + t.n + '</span>' +
+        '<span class="av">' + fmt1(t.avg) + '</span>' +
+        '<span class="tp">' + esc(t.top.player) + ' <small>(' + fmt1(t.top.idx) + ')</small></span></div>').join('') +
+    '</div>' +
+    '</div>';
+  ddBuilt[key] = true;
+}
+
+/* ---------- league key findings (generated) ---------- */
+const lfBuilt = {};
+function kfCard(featured, lg, title, body, stat){
+  return '<div class="an-kf-card' + (featured ? ' is-featured' : '') + '" data-lg="' + lg + '">' +
+    '<div class="an-kf-rank">' + kfCard.n++ + '</div>' +
+    '<div class="an-kf-body"><h4>' + title + '</h4><p>' + body + '</p></div>' +
+    '<span class="an-kf-stat">' + stat + '</span></div>';
+}
+function renderLeagueFindings(key){
+  const host = document.getElementById('league-findings');
+  if (lfBuilt[key]){ host.innerHTML = lfBuilt[key]; return; }
+  const d = RAI[key], L = DD_LEAGUE_NAMES[key];
+  const avg = a => a.reduce((s, x) => s + x, 0) / a.length;
+  const used = new Set();
+  const pick = sorted => { for (const r of sorted){ if (!used.has(r.player)){ used.add(r.player); return r; } } return sorted[0]; };
+  const hardest = pick(d);
+  const longest = pick(d.slice().sort((a, b) => b.miles - a.miles));
+  const price = pick(d.slice().sort((a, b) => b.col - a.col));
+  const softest = d[d.length - 1];
+  const teams = {};
+  d.forEach(r => { (teams[r.team] = teams[r.team] || []).push(r); });
+  const tt = Object.entries(teams).map(([t, rs]) => ({ t, rs, avg: avg(rs.map(r => r.idx)) }))
+    .filter(x => x.rs.length > 1).sort((a, b) => b.avg - a.avg)[0];
+
+  kfCard.n = 1;
+  let html = '<p class="an-copy">The numbers that define the ' + L + ' class.</p><div class="an-kf-grid">';
+  html += kfCard(true, key, esc(hardest.player) + ' Tops The ' + L + ' At ' + fmt1(hardest.idx),
+    '<strong>' + esc(hardest.home) + ' to the ' + esc(hardest.team) + ' is the hardest adjustment in the ' + L + ' class</strong>: ' +
+    fmt(Math.round(hardest.miles)) + ' miles from home, a ' + signed(hardest.col) + ' cost-of-living change and a ' +
+    fmt1(hardest.climate) + '&deg;C climate shift, in a market scoring ' + Number(hardest.fan).toFixed(2) + ' of 1.00 for fan and media pressure.',
+    L + ' Index ' + fmt1(hardest.idx) + ' / 100');
+  html += kfCard(false, key, esc(longest.player) + ' Makes The League&#8217;s Longest Trip',
+    '<strong>' + fmt(Math.round(longest.miles)) + ' miles from ' + esc(longest.home) + ' to the ' + esc(longest.team) + '</strong>, farther than anyone else in the ' + L + ' class, with a ' + fmt1(longest.climate) + '&deg;C swing in climate waiting at the other end.',
+    fmt(Math.round(longest.miles)) + ' Miles From Home');
+  html += kfCard(false, key, esc(price.player) + ' Faces The Biggest Price Shock',
+    'Everyday life around the ' + esc(price.team) + ' costs about <strong>' + signed(price.col) + ' compared with ' + esc(price.home) + '</strong>, the largest cost-of-living change in the ' + L + ' class.',
+    'Cost Of Living ' + signed(price.col));
+  if (tt){
+    html += kfCard(false, key, esc(tt.t) + ' Is The ' + L + '&#8217;s Toughest Landing Spot',
+      '<strong>' + tt.rs.length + ' rookies arrive to an average index of ' + fmt1(tt.avg) + '</strong>: ' +
+      tt.rs.map(r => esc(r.player) + ' (' + fmt1(r.idx) + ')').join(', ') + '. One roster, several steep adjustments at once.',
+      'Team Average ' + fmt1(tt.avg) + ' / 100');
+  }
+  html += kfCard(false, key, esc(softest.player) + ' Gets The Softest Landing',
+    esc(softest.home) + ' to the ' + esc(softest.team) + ' scores just <strong>' + fmt1(softest.idx) + '</strong>: ' +
+    fmt(Math.round(softest.miles)) + ' miles from home, ' + signed(softest.col) + ' prices and a ' + fmt1(softest.climate) + '&deg;C shift. Familiar life, smaller leap.',
+    L + ' Low: ' + fmt1(softest.idx) + ' / 100');
+  html += '</div>';
+  lfBuilt[key] = html;
+  host.innerHTML = html;
+}
+
+/* ---------- league-aware hero band ---------- */
+let heroOriginals = null;
+function heroStatTile(valueHtml, label){
+  return '<div class="an-hero-stat"><div class="an-stat-body"><b>' + valueHtml + '</b><span class="lbl">' + label + '</span></div></div>';
+}
+function updateHeroBand(lg){
+  const label = document.getElementById('flightLabel');
+  const from = document.getElementById('flightFrom');
+  const to = document.getElementById('flightTo');
+  const miles = document.getElementById('flightMiles');
+  const stats = document.getElementById('heroStats');
+  const panel = document.getElementById('flightPanel');
+  const tag = document.querySelector('#arcTag text');
+  if (!heroOriginals){
+    heroOriginals = { label: label.innerHTML, from: from.innerHTML, to: to.innerHTML,
+      miles: miles.innerHTML, stats: stats.innerHTML, tag: tag ? tag.textContent : '', aria: panel.getAttribute('aria-label') };
+  }
+  if (lg === 'all'){
+    label.innerHTML = heroOriginals.label; from.innerHTML = heroOriginals.from; to.innerHTML = heroOriginals.to;
+    miles.innerHTML = heroOriginals.miles; stats.innerHTML = heroOriginals.stats;
+    if (tag) tag.textContent = heroOriginals.tag;
+    panel.setAttribute('aria-label', heroOriginals.aria);
+  } else {
+    const key = lg.toLowerCase(), L = DD_LEAGUE_NAMES[key], d = RAI[key], r = d[0];
+    const homeParts = String(r.home).split(', ');
+    const teamCity = r.team.split(' ').slice(0, -1).join(' ') || r.team;
+    const nickname = r.team.split(' ').slice(-1)[0];
+    label.textContent = 'The Toughest Move In The ' + L;
+    from.innerHTML = esc(homeParts[0]) + '<small>' + esc(homeParts.slice(1).join(', ') || '&nbsp;') + '</small>';
+    to.innerHTML = esc(teamCity) + '<small>' + esc(nickname) + ' &middot; ' + esc(r.player) + ', ' + esc(r.pos) + '</small>';
+    miles.innerHTML = '<span>' + fmt(Math.round(r.miles)) + '</span>&nbsp;mi<span class="sub">Home to venue &middot; ' +
+      signed(r.col) + ' cost of living &middot; ' + fmt1(r.climate) + '\u00b0C climate shift</span>';
+    if (tag) tag.textContent = r.player;
+    panel.setAttribute('aria-label', 'Toughest move in the ' + L + ': ' + r.player + ', ' + r.home + ' to ' + teamCity + ', ' + fmt(Math.round(r.miles)) + ' miles');
+
+    const avg = a => a.reduce((s, x) => s + x, 0) / a.length;
+    const longest = d.slice().sort((a, b) => b.miles - a.miles)[0];
+    let priceSorted = d.slice().sort((a, b) => b.col - a.col);
+    const price = priceSorted[0].player === longest.player && priceSorted[1] ? priceSorted[1] : priceSorted[0];
+    const coverage = { nfl: 'Rounds 1\u20132 plus No. 66', nba: 'All first-round picks', wnba: '14 of 15 first-round picks' }[key];
+    stats.innerHTML =
+      heroStatTile(d.length + '', L + ' rookies scored &middot; ' + coverage) +
+      heroStatTile(fmt(Math.round(longest.miles)) + '&nbsp;<span class="u">mi</span>', 'Longest move &middot; ' + esc(longest.player.split(' ').slice(-1)[0]) + ', ' + esc(String(longest.home).split(', ')[0]) + ' \u2192 ' + esc(longest.team.split(' ').slice(0, -1).join(' ') || longest.team)) +
+      heroStatTile((price.col > 0 ? '+' : '') + '<span>' + Math.abs(Number(price.col)).toFixed(1) + '</span><span class="u">%</span>', 'Biggest cost-of-living jump &middot; ' + esc(price.player.split(' ').slice(-1)[0]) + ', ' + esc(String(price.home).split(', ')[0]) + ' \u2192 ' + esc(price.team.split(' ').slice(0, -1).join(' ') || price.team)) +
+      heroStatTile(fmt(Math.round(avg(d.map(x => x.miles)))) + '&nbsp;<span class="u">mi</span>', 'Average move from home across the ' + L);
+  }
+  if (window.__anFlightReplay && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    setTimeout(window.__anFlightReplay, 120);
+  }
+}
+
+/* ---------- league lens ---------- */
+const LENS_SECTIONS = { NFL: 'sec-nfl', NBA: 'sec-nba', WNBA: 'sec-wnba' };
+function setLens(lg, fromInit){
+  document.querySelectorAll('.an-lens-pill').forEach(p => {
+    const on = p.dataset.lens === lg;
+    p.classList.toggle('active', on);
+    p.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+  const isAll = lg === 'all';
+
+  // league ranking sections + their nav links
+  Object.keys(LENS_SECTIONS).forEach(L => {
+    const sec = document.getElementById(LENS_SECTIONS[L]);
+    const show = (isAll || lg === L);
+    sec.style.display = show ? '' : 'none';
+    const sep = sec.previousElementSibling;
+    if (sep && sep.classList.contains('an-sep')) sep.style.display = show ? '' : 'none';
+    const link = document.querySelector('.an-jump-link[data-jump="' + LENS_SECTIONS[L] + '"]');
+    if (link){
+      link.style.display = show ? '' : 'none';
+      if (!link.dataset.label) link.dataset.label = link.textContent;
+      link.textContent = (!isAll && lg === L) ? 'Ranking' : link.dataset.label;
+    }
+    const dd = document.getElementById('dd-' + L.toLowerCase());
+    if (dd){
+      if (!isAll && lg === L){ renderDeepDive(L.toLowerCase()); dd.hidden = false; }
+      else dd.hidden = true;
+    }
+  });
+
+  // combined section: All view only
+  const comb = document.getElementById('sec-combined');
+  comb.style.display = isAll ? '' : 'none';
+  const csep = comb.previousElementSibling;
+  if (csep && csep.classList.contains('an-sep')) csep.style.display = isAll ? '' : 'none';
+  const clink = document.querySelector('.an-jump-link[data-jump="sec-combined"]');
+  if (clink) clink.style.display = isAll ? '' : 'none';
+
+  // key findings: global vs generated league set
+  document.getElementById('global-findings').hidden = !isAll;
+  const lf = document.getElementById('league-findings');
+  if (isAll){ lf.hidden = true; }
+  else { renderLeagueFindings(lg.toLowerCase()); lf.hidden = false; }
+
+  // deep dive nav link
+  const ddLink = document.querySelector('[data-dd-link]');
+  if (ddLink){
+    ddLink.hidden = isAll;
+    if (!isAll) ddLink.dataset.jump = 'dd-' + lg.toLowerCase();
+  }
+
+  updateHeroBand(lg);
+
+  try {
+    const u = new URL(window.location.href);
+    if (isAll) u.searchParams.delete('league'); else u.searchParams.set('league', lg.toLowerCase());
+    history.replaceState(null, '', u);
+  } catch(e) {}
+  if (!fromInit && typeof anPostHeight === 'function') setTimeout(anPostHeight, 250);
+}
+document.querySelectorAll('.an-lens-pill').forEach(p => p.addEventListener('click', () => setLens(p.dataset.lens)));
+(function(){
+  try {
+    const q = (new URL(window.location.href)).searchParams.get('league');
+    const lg = { nfl: 'NFL', nba: 'NBA', wnba: 'WNBA' }[(q || '').toLowerCase()];
+    if (lg) setLens(lg, true);
+  } catch(e) {}
+})();
 
 /* ---------- back to sections ---------- */
 document.querySelectorAll('[data-scroll-menu]').forEach(b => b.addEventListener('click', () => {
